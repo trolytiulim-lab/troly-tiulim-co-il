@@ -43,7 +43,14 @@ function Index() {
         <div className="absolute -left-20 top-40 h-72 w-72 rounded-full bg-ocean-200/30 blur-3xl" />
         <div className="absolute -right-20 bottom-20 h-96 w-96 rounded-full bg-sand-200/40 blur-3xl" />
 
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 py-24 text-center md:py-32">
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 py-20 text-center md:py-28">
+          <img
+            src={trolleyLogo.url}
+            alt="לוגו טרולי טיולים – הטרול עם המזוודה מטייל בעולם"
+            className="mb-8 h-40 w-auto drop-shadow-lg md:h-52"
+            loading="eager"
+          />
+
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-1.5 text-sm font-medium text-ocean-700 shadow-sm backdrop-blur-sm">
             <span className="inline-block whitespace-nowrap" dir="ltr" aria-hidden="true">🧳</span>
             טרולי – לגלגל בקלות לכל העולם
