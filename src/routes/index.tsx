@@ -47,7 +47,7 @@ function Index() {
           <img
             src={trolleyLogo.url}
             alt="לוגו טרולי טיולים – הטרול עם המזוודה מטייל בעולם"
-            className="mb-8 h-40 w-auto rounded-full border-4 border-white/80 bg-white shadow-xl drop-shadow-lg md:h-52"
+            className="mb-8 h-44 w-auto rounded-full md:h-56"
             loading="eager"
           />
 
