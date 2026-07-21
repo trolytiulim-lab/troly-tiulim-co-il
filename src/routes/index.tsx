@@ -47,9 +47,9 @@ function Index() {
             טרולי – לגלגל בקלות לכל העולם
           </span>
 
-          <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl">
+          <h1 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
             <span className="block text-2xl font-medium text-ocean-700 md:text-3xl lg:text-4xl">טרולי טיולים</span>
-            <span className="mt-2 block whitespace-nowrap">
+            <span className="mt-2 block">
               עפים על החופשה הבאה שלכם
               <span className="mr-2 text-ocean-700" aria-hidden="true">🎒✈️</span>
             </span>
