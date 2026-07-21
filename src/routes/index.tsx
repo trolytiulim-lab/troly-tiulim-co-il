@@ -51,7 +51,8 @@ function Index() {
             <span className="block text-2xl font-medium text-ocean-700 md:text-3xl lg:text-4xl">טרולי טיולים</span>
             <span className="mt-2 block">
               עפים על החופשה הבאה שלכם
-              <span className="mr-2 text-ocean-700" aria-hidden="true">🎒✈️</span>
+              <bdi dir="ltr" className="mr-2 text-ocean-700" aria-hidden="true">🎒✈️</bdi>
+              &lrm;
             </span>
           </h1>
 
