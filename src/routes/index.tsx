@@ -49,11 +49,9 @@ function Index() {
 
           <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl">
             <span className="block text-2xl font-medium text-ocean-700 md:text-3xl lg:text-4xl">טרולי טיולים</span>
-            <span className="mt-2 block">
-              <span className="whitespace-nowrap">
-                עפים על החופשה הבאה שלכם
-                <span className="font-emoji mr-2 text-ocean-700" aria-hidden="true">🎒✈️</span>
-              </span>
+            <span className="mt-2 block whitespace-nowrap">
+              עפים על החופשה הבאה שלכם
+              <span className="mr-2 text-ocean-700" aria-hidden="true">🎒✈️</span>
             </span>
           </h1>
 
