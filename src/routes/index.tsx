@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import trolleyLogo from "@/assets/trolley-logo.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
