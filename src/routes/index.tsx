@@ -52,8 +52,7 @@ function Index() {
           />
 
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-4 py-1.5 text-sm font-medium text-ocean-700 shadow-sm backdrop-blur-sm">
-            <span className="inline-block whitespace-nowrap" dir="ltr" aria-hidden="true">🧳</span>
-            טרולי – לגלגל בקלות לכל העולם
+            טרולי <span className="inline-block whitespace-nowrap" dir="ltr" aria-hidden="true">🧳</span> לגלגל בקלות לכל העולם
           </span>
 
           <h1 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
