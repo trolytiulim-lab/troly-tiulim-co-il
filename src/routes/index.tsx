@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "בונים לכם מסלול אקטיבי, מדויק ומושלם – טיסות, מלונות ואטרקציות. אתם רק אורזים.",
+          "בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: heroBg.url },

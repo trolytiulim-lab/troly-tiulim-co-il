@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "טרולי | תארזו את הטרולי – החופשה שלכם על גלגלים" },
-      { name: "description", content: "מתכננים לכם מסלולים אקטיביים ומדויקים בחו\"ל – בלי להסתבך במפות, בלי לבזבז זמן ובלי כאבי ראש." },
+      { title: "טרולי טיולים | חופשה בהתאמה אישית מאפס" },
+      { name: "description", content: "בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון." },
       { name: "author", content: "Trolley Trips" },
-      { property: "og:title", content: "טרולי | תארזו את הטרולי – החופשה שלכם על גלגלים" },
-      { property: "og:description", content: "מתכננים לכם מסלולים אקטיביים ומדויקים בחו\"ל – בלי להסתבך במפות, בלי לבזבז זמן ובלי כאבי ראש." },
+      { property: "og:title", content: "טרולי טיולים | חופשה בהתאמה אישית מאפס" },
+      { property: "og:description", content: "בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@trolleytrips" },
+      { name: "twitter:title", content: "טרולי טיולים | חופשה בהתאמה אישית מאפס" },
+      { name: "twitter:description", content: "בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/6U0P1KG5n0bWRx5ubrhsGNeNOUE3/social-images/social-1784846980849-WhatsApp_Image_2026-07-21_at_15.29.35.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/6U0P1KG5n0bWRx5ubrhsGNeNOUE3/social-images/social-1784846980849-WhatsApp_Image_2026-07-21_at_15.29.35.webp" },
     ],
     links: [
       {
