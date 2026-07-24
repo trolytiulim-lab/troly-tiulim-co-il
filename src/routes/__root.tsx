@@ -87,8 +87,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@trolleytrips" },
       { name: "twitter:title", content: "טרולי טיולים | חופשה בהתאמה אישית מאפס" },
       { name: "twitter:description", content: "בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/6U0P1KG5n0bWRx5ubrhsGNeNOUE3/social-images/social-1784846980849-WhatsApp_Image_2026-07-21_at_15.29.35.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/6U0P1KG5n0bWRx5ubrhsGNeNOUE3/social-images/social-1784846980849-WhatsApp_Image_2026-07-21_at_15.29.35.webp" },
+      { property: "og:image", content: "https://trolley-trips.lovable.app/__l5e/assets-v1/d2100169-3581-42dc-a59b-8c6972cb554d/trolley-logo.jpg" },
+      { property: "og:site_name", content: "טרולי טיולים" },
+      { name: "twitter:image", content: "https://trolley-trips.lovable.app/__l5e/assets-v1/d2100169-3581-42dc-a59b-8c6972cb554d/trolley-logo.jpg" },
     ],
     links: [
       {
