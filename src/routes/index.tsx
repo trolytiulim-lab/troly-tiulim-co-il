@@ -191,6 +191,16 @@ function Index() {
               <span className="mt-1 block text-xs not-italic text-slate-200/80">— מטיילת מרוצה</span>
             </blockquote>
           </div>
+
+          {/* Branded plane */}
+          <div className="mt-14 w-full">
+            <img
+              src={trolleyPlane.url}
+              alt="מטוס ממותג של טרולי טיולים בשמיים"
+              className="mx-auto w-full max-w-4xl rounded-3xl shadow-2xl ring-1 ring-white/20"
+              loading="eager"
+            />
+          </div>
         </div>
       </section>
 
