@@ -4,10 +4,13 @@ import trolleyLogo from "@/assets/trolley-logo.jpg.asset.json";
 import heroBg from "@/assets/hero-bg.jpg.asset.json";
 import destLarnaca from "@/assets/dest-larnaca.jpg.asset.json";
 import destBudapest from "@/assets/dest-budapest.jpg.asset.json";
+import trolleyPlane from "@/assets/trolley-plane.png.asset.json";
 
 const WHATSAPP_URL =
-  "https://wa.me/972500000000?text=" +
+  "https://wa.me/972528556611?text=" +
   encodeURIComponent("היי, ראיתי את המסלול בטרולי טיולים ואשמח לשמוע פרטים");
+const CONTACT_EMAIL = "trolytiulim@gmail.com";
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
