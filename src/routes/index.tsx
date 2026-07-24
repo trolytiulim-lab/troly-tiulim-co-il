@@ -88,11 +88,32 @@ const faqs = [
 function Index() {
   const [form, setForm] = useState({ name: "", phone: "" });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.phone) return;
-    setSent(true);
+    setSubmitting(true);
+    setErrorMsg("");
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          _subject: "ליד חדש מטרולי טיולים",
+          _template: "table",
+        }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setErrorMsg("שליחה נכשלה. אפשר לפנות אלינו ישירות בוואטסאפ.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
