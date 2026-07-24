@@ -316,10 +316,14 @@ function Index() {
               />
               <button
                 type="submit"
-                className="sm:col-span-2 inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                disabled={submitting}
+                className="sm:col-span-2 inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
               >
-                שיחזרו אליי
+                {submitting ? "שולח..." : "שיחזרו אליי"}
               </button>
+              {errorMsg && (
+                <p className="sm:col-span-2 text-center text-sm text-destructive">{errorMsg}</p>
+              )}
             </form>
           )}
           <div className="mt-6 text-center text-sm text-muted-foreground">
