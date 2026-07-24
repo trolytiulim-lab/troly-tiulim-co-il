@@ -4,10 +4,13 @@ import trolleyLogo from "@/assets/trolley-logo.jpg.asset.json";
 import heroBg from "@/assets/hero-bg.jpg.asset.json";
 import destLarnaca from "@/assets/dest-larnaca.jpg.asset.json";
 import destBudapest from "@/assets/dest-budapest.jpg.asset.json";
+import trolleyPlane from "@/assets/trolley-plane.png.asset.json";
 
 const WHATSAPP_URL =
-  "https://wa.me/972500000000?text=" +
+  "https://wa.me/972528556611?text=" +
   encodeURIComponent("היי, ראיתי את המסלול בטרולי טיולים ואשמח לשמוע פרטים");
+const CONTACT_EMAIL = "trolytiulim@gmail.com";
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,9 +28,9 @@ export const Route = createFileRoute("/")({
           "בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: heroBg.url },
+      { property: "og:image", content: "https://trolley-trips.lovable.app" + trolleyPlane.url },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: heroBg.url },
+      { name: "twitter:image", content: "https://trolley-trips.lovable.app" + trolleyPlane.url },
     ],
   }),
   component: Index,
@@ -85,11 +88,32 @@ const faqs = [
 function Index() {
   const [form, setForm] = useState({ name: "", phone: "" });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.phone) return;
-    setSent(true);
+    setSubmitting(true);
+    setErrorMsg("");
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          _subject: "ליד חדש מטרולי טיולים",
+          _template: "table",
+        }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setErrorMsg("שליחה נכשלה. אפשר לפנות אלינו ישירות בוואטסאפ.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -166,6 +190,16 @@ function Index() {
               „חזרנו מבודפשט והיה מושלם, לא היינו צריכים לדאוג לכלום!"
               <span className="mt-1 block text-xs not-italic text-slate-200/80">— מטיילת מרוצה</span>
             </blockquote>
+          </div>
+
+          {/* Branded plane */}
+          <div className="mt-14 w-full">
+            <img
+              src={trolleyPlane.url}
+              alt="מטוס ממותג של טרולי טיולים בשמיים"
+              className="mx-auto w-full max-w-4xl rounded-3xl shadow-2xl ring-1 ring-white/20"
+              loading="eager"
+            />
           </div>
         </div>
       </section>
@@ -282,10 +316,14 @@ function Index() {
               />
               <button
                 type="submit"
-                className="sm:col-span-2 inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                disabled={submitting}
+                className="sm:col-span-2 inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
               >
-                שיחזרו אליי
+                {submitting ? "שולח..." : "שיחזרו אליי"}
               </button>
+              {errorMsg && (
+                <p className="sm:col-span-2 text-center text-sm text-destructive">{errorMsg}</p>
+              )}
             </form>
           )}
           <div className="mt-6 text-center text-sm text-muted-foreground">
