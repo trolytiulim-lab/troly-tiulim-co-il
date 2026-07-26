@@ -6,67 +6,96 @@ import destLarnaca from "@/assets/dest-larnaca.jpg.asset.json";
 import destBudapest from "@/assets/dest-budapest.jpg.asset.json";
 import trolleyPlane from "@/assets/trolley-plane.png.asset.json";
 
+const PHONE_DISPLAY = "052-8556611";
+const PHONE_TEL = "+972528556611";
+const CONTACT_EMAIL = "trolytiulim@gmail.com";
 const WHATSAPP_URL =
   "https://wa.me/972528556611?text=" +
   encodeURIComponent("היי, ראיתי את המסלול בטרולי טיולים ואשמח לשמוע פרטים");
-const CONTACT_EMAIL = "trolytiulim@gmail.com";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+
+const OG_IMAGE = "https://trolley-trips.lovable.app" + trolleyPlane.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "טרולי טיולים | חופשה בהתאמה אישית מאפס" },
+      { title: "טרולי טיולים | חופשה בהתאמה אישית" },
       {
         name: "description",
         content:
-          "בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון.",
+          "בונים לכם מסלול אקטיבי, מדויק ומותאם אישית לחו\"ל – בלי לבזבז שעות מול המסך ובלי כאבי ראש. ליווי בוואטסאפ 052-8556611.",
       },
-      { property: "og:title", content: "טרולי טיולים | חופשה בהתאמה אישית מאפס" },
+      { property: "og:title", content: "טרולי טיולים | חופשה בהתאמה אישית" },
       {
         property: "og:description",
         content:
-          "בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון.",
+          "בונים לכם מסלול אקטיבי, מדויק ומותאם אישית לחו\"ל – בלי לבזבז שעות מול המסך ובלי כאבי ראש.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://trolley-trips.lovable.app" + trolleyPlane.url },
+      { property: "og:url", content: "https://trolley-trips.lovable.app/" },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: "מטוס ממותג של טרולי טיולים" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://trolley-trips.lovable.app" + trolleyPlane.url },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
+    links: [{ rel: "canonical", href: "https://trolley-trips.lovable.app/" }],
   }),
   component: Index,
 });
 
 const benefits = [
   {
-    icon: "🧘",
-    title: "ראש שקט לחלוטין",
-    description: "דואגים לכל הטיסות, בתי המלון והאטרקציות – מא' ועד ת'.",
+    icon: "🧭",
+    title: "מסלול מדויק בהתאמה אישית",
+    description:
+      "לא תבניות מוכנות. בונים לכם מסלול יום-יום שמתאים בדיוק לקצב, לתקציב ולסגנון שלכם.",
   },
   {
     icon: "⚡",
-    title: "חופשה אקטיבית ודינמית",
+    title: "אפס בזבוז זמן מול המסך",
     description:
-      "מסלולים שמתאימים בדיוק לקצב ולסגנון שלכם – בלי מוזיאונים משעממים או ישיבה מיותרת.",
+      "אתם לא צריכים לחפור בפורומים ובבלוגים. אנחנו עושים את כל העבודה – אתם רק אורזים.",
   },
   {
     icon: "💬",
-    title: "ליווי צמוד",
-    description: "זמינות מלאה איתכם לפני הטיסה ובמהלכה – לכל שאלה, שינוי או בקשה.",
+    title: "ליווי צמוד בוואטסאפ",
+    description:
+      "זמינים לפני הטיסה ובמהלכה – לכל שאלה, שינוי או המלצה של הרגע האחרון.",
   },
 ];
 
 const destinations = [
   {
     image: destLarnaca.url,
-    tag: "יעד חם",
-    title: "לרנקה, קפריסין",
-    description: "חופשה ים-תיכונית מושלמת – שילוב של בטן-גב וסיורים קלילים.",
+    tag: "ים ושמש",
+    title: "קפריסין • לרנקה",
+    duration: "5 ימים",
+    description: "חופים, קולינריה מקומית וטיולי טבע קלילים – יעד מושלם למשפחות וזוגות.",
   },
   {
     image: destBudapest.url,
-    tag: "יעד מומלץ",
-    title: "בודפשט אקטיבית",
-    description: "ספא, תצפיות, קולינריה וקצב שמתאים בדיוק לכם.",
+    tag: "עיר וסטייל",
+    title: "הונגריה • בודפשט",
+    duration: "6 ימים",
+    description: "ספא היסטורי, תצפיות על הדנובה, סיורי אוכל ואווירה אירופית קלאסית.",
+  },
+];
+
+const itineraries = [
+  {
+    days: "3",
+    title: "סופ״ש ארוך בבודפשט",
+    highlights: ["טיסה + מלון בוטיק במרכז", "שייט על הדנובה בשקיעה", "סיור אוכל מקומי"],
+  },
+  {
+    days: "5",
+    title: "לרנקה בקלות",
+    highlights: ["חוף פרטי + ספא", "יום טיול לכפרי היין", "מסעדות שף מקומיות"],
+  },
+  {
+    days: "7",
+    title: "רוד־טריפ באלפים",
+    highlights: ["רכב שכור + מלונות בדרך", "מסלולי הליכה בקצב שלכם", "כפרים סודיים"],
   },
 ];
 
@@ -118,6 +147,25 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Top contact bar */}
+      <div className="hidden border-b border-border bg-slate-950 text-white md:block">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2 text-sm">
+          <div className="flex items-center gap-6">
+            <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 hover:text-ocean-200">
+              <span aria-hidden="true">📞</span>
+              <span dir="ltr">{PHONE_DISPLAY}</span>
+            </a>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-2 hover:text-ocean-200">
+              <span aria-hidden="true">✉️</span>
+              <span dir="ltr">{CONTACT_EMAIL}</span>
+            </a>
+          </div>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-4 py-1 font-medium hover:bg-whatsapp-dark">
+            שיחה בוואטסאפ
+          </a>
+        </div>
+      </div>
+
       {/* Floating WhatsApp */}
       <a
         href={WHATSAPP_URL}
@@ -138,17 +186,14 @@ function Index() {
           style={{ backgroundImage: `url(${heroBg.url})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/55 via-slate-950/45 to-slate-950/75" aria-hidden="true" />
-        <div className="absolute -left-20 top-40 h-72 w-72 rounded-full bg-ocean-400/20 blur-3xl" aria-hidden="true" />
-        <div className="absolute -right-20 bottom-20 h-96 w-96 rounded-full bg-sand-300/20 blur-3xl" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/50 to-slate-950/80" aria-hidden="true" />
 
         <div className="relative mx-auto flex max-w-6xl flex-col items-center px-5 py-16 text-center sm:px-6 md:py-24">
-          {/* Logo centered */}
           <div className="mb-8 flex justify-center">
             <img
               src={trolleyLogo.url}
               alt="לוגו טרולי טיולים"
-              className="h-36 w-36 rounded-full object-cover shadow-2xl ring-4 ring-white/30 sm:h-44 sm:w-44 md:h-52 md:w-52"
+              className="h-32 w-32 rounded-full object-cover shadow-2xl ring-4 ring-white/30 sm:h-40 sm:w-40"
               loading="eager"
             />
           </div>
@@ -158,41 +203,41 @@ function Index() {
           </span>
 
           <h1 className="max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
-            טרולי טיולים – חופשה בהתאמה אישית מאפס
+            חופשה בהתאמה אישית – בונים לכם את הטיול המושלם
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-100/95 drop-shadow sm:text-lg md:text-xl">
-            בלי לבזבז שעות מול המסך, בלי כאבי ראש – בונים לכם מסלול אקטיבי, מדויק ומושלם עד הפרט האחרון.
+            מסלולים אקטיביים ומדויקים לחו"ל, כולל טיסות ומלונות – בלי לבזבז שעות מול המסך ובלי כאבי ראש.
           </p>
 
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-3 rounded-full bg-whatsapp px-8 py-4 text-lg font-semibold text-white shadow-[0_0_40px_hsl(142_70%_49%/0.6)] transition-all hover:-translate-y-0.5 hover:bg-whatsapp-dark hover:shadow-[0_0_60px_hsl(142_70%_49%/0.85)]"
-          >
-            <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.13 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
-            <span>לתכנון החופשה בוואטסאפ</span>
-          </a>
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 rounded-full bg-whatsapp px-8 py-4 text-lg font-semibold text-white shadow-[0_0_40px_hsl(142_70%_49%/0.6)] transition-all hover:-translate-y-0.5 hover:bg-whatsapp-dark"
+            >
+              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.13 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              <span>לתכנון החופשה בוואטסאפ</span>
+            </a>
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
+            >
+              <span aria-hidden="true">📞</span>
+              <span dir="ltr">{PHONE_DISPLAY}</span>
+            </a>
+          </div>
 
-          <p className="mt-4 text-sm text-slate-200/90">
-            תגובה מהירה בוואטסאפ • ליווי אישי מהרגע הראשון
-          </p>
-
-          <div className="mt-10 flex flex-col items-center gap-4">
+          <div className="mt-10 flex flex-col items-center gap-3">
             <div className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-md">
               <span dir="ltr" aria-hidden="true">⭐⭐⭐⭐⭐</span>
               <span>100% מסלולים מותאמים אישית</span>
             </div>
-            <blockquote className="max-w-xl text-sm italic leading-relaxed text-slate-100/90 md:text-base">
-              „חזרנו מבודפשט והיה מושלם, לא היינו צריכים לדאוג לכלום!"
-              <span className="mt-1 block text-xs not-italic text-slate-200/80">— מטיילת מרוצה</span>
-            </blockquote>
           </div>
 
-          {/* Branded plane */}
           <div className="mt-14 w-full">
             <img
               src={trolleyPlane.url}
@@ -204,33 +249,60 @@ function Index() {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 md:py-24">
-        <div className="mb-10 text-center">
-          <h2 className="text-2xl font-bold text-foreground md:text-3xl">למה לבחור בטרולי?</h2>
-          <p className="mt-2 text-muted-foreground">3 סיבות שבזכותן החופשה שלכם פשוט עובדת.</p>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {benefits.map((b) => (
-            <div
-              key={b.title}
-              className="group rounded-3xl border border-border bg-card p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-ocean-200 hover:shadow-md"
-            >
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-ocean-50 text-3xl transition-colors group-hover:bg-ocean-100">
-                {b.icon}
+      {/* USP */}
+      <section className="border-b border-border bg-gradient-to-br from-ocean-50 via-white to-sand-50">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
+          <div className="grid items-center gap-10 md:grid-cols-[1.1fr_1fr]">
+            <div>
+              <div className="mb-3 inline-block rounded-full bg-ocean-100 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-ocean-800">
+                למה טרולי?
               </div>
-              <h3 className="text-xl font-bold text-card-foreground">{b.title}</h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">{b.description}</p>
+              <h2 className="text-3xl font-bold leading-tight md:text-4xl">
+                מסלול אקטיבי ומדויק – בהתאמה אישית מלאה
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                בעולם שבו כולם מציעים אותן חבילות, אנחנו בונים לכם מסלול יום-יום שמתאים בדיוק לקצב, לסגנון ולתקציב שלכם. אתם לא צריכים לבזבז שעות מול המסך, לחפור בבלוגים או להתלבט בין המלצות – אנחנו עושים את זה במקומכם.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "אפיון מלא של הסגנון שלכם בוואטסאפ",
+                  "מסלול מפורט יום-יום עם טיסות, מלונות ואטרקציות",
+                  "התאמות בזמן אמת גם במהלך הטיול",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-whatsapp/15 text-whatsapp-dark">✓</span>
+                    <span className="text-base text-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ))}
+            <div className="grid gap-4">
+              {benefits.map((b) => (
+                <div key={b.title} className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ocean-50 text-2xl">
+                      {b.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-card-foreground">{b.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{b.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Destinations */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 md:py-24">
         <div className="mb-10 text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">היעדים החמים שלנו</h2>
-          <p className="mt-2 text-muted-foreground">מסלולים לדוגמה – מותאמים אישית לקצב וליעד שלכם.</p>
+          <div className="mb-3 inline-block rounded-full bg-sand-100 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-sand-800">
+            יעדים חמים
+          </div>
+          <h2 className="text-3xl font-bold md:text-4xl">היעדים המבוקשים שלנו</h2>
+          <p className="mt-3 text-muted-foreground">כל יעד נבנה מחדש עבורכם – זה רק טעימה.</p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
           {destinations.map((d) => (
@@ -248,10 +320,21 @@ function Index() {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent p-6 text-right">
-                <div className="mb-1 text-sm font-medium text-ocean-200">{d.tag}</div>
-                <h3 className="text-xl font-bold text-white md:text-2xl">{d.title}</h3>
-                <p className="mt-1 text-sm text-slate-100/90">{d.description}</p>
+              <div className="p-6 text-right">
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="rounded-full bg-ocean-50 px-3 py-1 text-xs font-semibold text-ocean-800">{d.tag}</span>
+                  <span className="text-sm font-medium text-muted-foreground">{d.duration}</span>
+                </div>
+                <h3 className="text-xl font-bold text-card-foreground md:text-2xl">{d.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d.description}</p>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-whatsapp-dark hover:underline"
+                >
+                  לפרטים על היעד ←
+                </a>
               </div>
             </article>
           ))}
@@ -260,6 +343,78 @@ function Index() {
           <p className="text-base font-medium text-foreground">
             🌍 התאמה אישית לכל יעד בעולם – מעצבים כל חופשה לפי החלומות שלכם.
           </p>
+        </div>
+      </section>
+
+      {/* Sample itineraries */}
+      <section className="border-y border-border bg-muted/30">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
+          <div className="mb-10 text-center">
+            <div className="mb-3 inline-block rounded-full bg-ocean-100 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-ocean-800">
+              מסלולים לדוגמה
+            </div>
+            <h2 className="text-3xl font-bold md:text-4xl">איך נראה מסלול של טרולי?</h2>
+            <p className="mt-3 text-muted-foreground">כמה דוגמאות ממה שבנינו למטיילים אחרים.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {itineraries.map((it) => (
+              <div key={it.title} className="flex flex-col rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-ocean-100 to-ocean-50 text-2xl font-bold text-ocean-800">
+                    {it.days}
+                  </div>
+                  <div className="text-sm text-muted-foreground">ימים</div>
+                </div>
+                <h3 className="text-lg font-bold text-card-foreground">{it.title}</h3>
+                <ul className="mt-4 flex-1 space-y-2 text-sm text-muted-foreground">
+                  {it.highlights.map((h) => (
+                    <li key={h} className="flex items-start gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ocean-400" aria-hidden="true" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center justify-center rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
+                >
+                  לבנות מסלול דומה
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA band */}
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 md:py-16">
+          <div className="grid items-center gap-8 md:grid-cols-[1fr_auto]">
+            <div className="text-center md:text-right">
+              <h2 className="text-2xl font-bold md:text-3xl">מוכנים לתכנן את הטיול הבא?</h2>
+              <p className="mt-2 text-slate-300">דברו איתנו – ישירות בטלפון, במייל או בוואטסאפ.</p>
+              <div className="mt-6 flex flex-wrap justify-center gap-4 md:justify-start">
+                <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-base font-semibold text-white backdrop-blur transition-colors hover:bg-white/20">
+                  <span aria-hidden="true">📞</span>
+                  <span dir="ltr">{PHONE_DISPLAY}</span>
+                </a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-base font-semibold text-white backdrop-blur transition-colors hover:bg-white/20">
+                  <span aria-hidden="true">✉️</span>
+                  <span dir="ltr">{CONTACT_EMAIL}</span>
+                </a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-base font-semibold text-white shadow-[0_0_30px_hsl(142_70%_49%/0.5)] transition-all hover:bg-whatsapp-dark">
+                  שיחה בוואטסאפ
+                </a>
+              </div>
+            </div>
+            <img
+              src={trolleyLogo.url}
+              alt="לוגו טרולי טיולים"
+              className="mx-auto hidden h-32 w-32 rounded-full object-cover ring-4 ring-white/20 md:block"
+            />
+          </div>
         </div>
       </section>
 
@@ -289,7 +444,7 @@ function Index() {
         <div className="rounded-3xl border border-border bg-gradient-to-br from-ocean-50 to-sand-50 p-6 shadow-md sm:p-10">
           <div className="mb-6 text-center">
             <h2 className="text-2xl font-bold md:text-3xl">מעדיפים שנחזור אליכם?</h2>
-            <p className="mt-2 text-muted-foreground">השאירו שם וטלפון – נחזור אליכם עוד היום.</p>
+            <p className="mt-2 text-muted-foreground">השאירו שם וטלפון – נחזור אליכם עוד היום למייל {CONTACT_EMAIL}.</p>
           </div>
           {sent ? (
             <div className="rounded-2xl bg-whatsapp/10 p-6 text-center text-whatsapp-dark">
@@ -336,8 +491,13 @@ function Index() {
       </section>
 
       <footer className="border-t border-border bg-muted/30 py-10">
-        <div className="mx-auto max-w-6xl px-6 text-center">
-          <p className="text-sm font-medium text-muted-foreground">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-6 text-center">
+          <p className="text-sm font-medium text-foreground">טרולי טיולים • חופשה בהתאמה אישית</p>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm text-muted-foreground">
+            <a href={`tel:${PHONE_TEL}`} className="hover:text-foreground" dir="ltr">{PHONE_DISPLAY}</a>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-foreground" dir="ltr">{CONTACT_EMAIL}</a>
+          </div>
+          <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} טרולי (Trolley Trips). כל הזכויות שמורות.
           </p>
         </div>
