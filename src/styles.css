@@ -63,11 +63,57 @@
   --color-ocean-100: var(--ocean-100);
   --color-ocean-200: var(--ocean-200);
   --color-ocean-700: var(--ocean-700);
+  --color-ocean-900: var(--ocean-900);
   --color-sand-50: var(--sand-50);
   --color-sand-200: var(--sand-200);
+  --color-turquoise: var(--turquoise);
+  --color-turquoise-dark: var(--turquoise-dark);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-dark: var(--whatsapp-dark);
+
+  --animate-float-slow: float-slow 7s ease-in-out infinite;
+  --animate-float-mid: float-mid 5s ease-in-out infinite;
+  --animate-fly-across: fly-across 26s linear infinite;
+  --animate-stamp: stamp-wobble 6s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-soft-pulse: soft-pulse 2.4s ease-in-out infinite;
 }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(3deg); }
+}
+@keyframes float-mid {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(4deg); }
+}
+@keyframes fly-across {
+  0% { transform: translateX(-15vw) translateY(0) rotate(0deg); opacity: 0; }
+  8% { opacity: 1; }
+  50% { transform: translateX(50vw) translateY(-26px) rotate(-3deg); }
+  92% { opacity: 1; }
+  100% { transform: translateX(115vw) translateY(6px) rotate(2deg); opacity: 0; }
+}
+@keyframes stamp-wobble {
+  0%, 100% { transform: rotate(-12deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.08); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 55%, transparent); }
+  50% { transform: scale(1.06); box-shadow: 0 0 0 16px color-mix(in oklab, var(--whatsapp) 0%, transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 
 :root {
   --radius: 0.625rem;
