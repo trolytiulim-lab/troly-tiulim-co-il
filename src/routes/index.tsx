@@ -334,7 +334,7 @@ function Index() {
 
           <div className="mx-auto max-w-3xl">
             {benefits.map((b, i) => (
-              <div key={b.title} className="h-[58vh] min-h-[320px]">
+              <div key={b.title} className="h-[360px]">
               <div
                 className="sticky"
                 style={{ top: `${96 + i * 26}px`, zIndex: 10 + i }}
