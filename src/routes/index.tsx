@@ -332,11 +332,11 @@ function Index() {
             <p className="mt-3 text-muted-foreground">גללו כדי לראות איך הקלפים נערמים – בדיוק כמו החוויה שלנו.</p>
           </div>
 
-          <div className="mx-auto max-w-3xl pb-[40vh]">
+          <div className="mx-auto max-w-3xl">
             {benefits.map((b, i) => (
+              <div key={b.title} className="h-[58vh] min-h-[320px]">
               <div
-                key={b.title}
-                className="sticky mb-8"
+                className="sticky"
                 style={{ top: `${96 + i * 26}px`, zIndex: 10 + i }}
               >
                 <div className="rounded-3xl border border-border bg-card p-6 shadow-[0_20px_60px_-25px_var(--ocean-700)] sm:p-8">
