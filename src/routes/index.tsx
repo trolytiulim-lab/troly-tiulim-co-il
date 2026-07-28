@@ -630,7 +630,12 @@ function Index() {
         </div>
         <p className="mt-10 text-center text-xs text-white/60">
           © {new Date().getFullYear()} טרולי טיולים (Trolley Trips). כל הזכויות שמורות.
+          {" · "}
+          <a href="/accessibility" className="underline transition-colors hover:text-primary">
+            הצהרת נגישות
+          </a>
         </p>
+
       </footer>
     </div>
   );
