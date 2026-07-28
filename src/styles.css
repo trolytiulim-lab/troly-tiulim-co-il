@@ -200,6 +200,86 @@
 }
 
 
+/* ===== Accessibility widget preferences ===== */
+:root {
+  --a11y-font-scale: 1;
+}
+
+html.a11y-font-scaled {
+  font-size: calc(100% * var(--a11y-font-scale));
+}
+
+html.a11y-readable-font,
+html.a11y-readable-font body {
+  font-family: Arial, "Heebo", "Segoe UI", sans-serif !important;
+  letter-spacing: 0.01em;
+}
+
+html.a11y-underline a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+html.a11y-big-cursor,
+html.a11y-big-cursor * {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l7 18 2.5-7.5L21 10z' fill='%23000' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E")
+      4 4,
+    auto !important;
+}
+
+html.a11y-stop-motion *,
+html.a11y-stop-motion *::before,
+html.a11y-stop-motion *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+html.a11y-contrast {
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.92 0.2 100);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.2 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.95 0 0);
+  --accent: oklch(0.25 0 0);
+  --accent-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 70%);
+  --input: oklch(1 0 0 / 70%);
+  --ring: oklch(0.92 0.2 100);
+  --ocean-50: oklch(0.12 0 0);
+  --ocean-100: oklch(0.18 0 0);
+  --ocean-200: oklch(0.24 0 0);
+  --ocean-700: oklch(0.92 0.2 100);
+  --ocean-900: oklch(0 0 0);
+  --sand-50: oklch(0.12 0 0);
+  --sand-200: oklch(0.2 0 0);
+  --turquoise: oklch(0.92 0.2 100);
+  --turquoise-dark: oklch(0.85 0.18 100);
+  --whatsapp: oklch(0.85 0.22 145);
+  --whatsapp-dark: oklch(0.75 0.2 145);
+}
+
+html.a11y-contrast body,
+html.a11y-contrast section,
+html.a11y-contrast footer,
+html.a11y-contrast header {
+  background-image: none !important;
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+html.a11y-contrast img {
+  filter: contrast(1.15);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -215,7 +295,13 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 2px;
+  }
 }
+
 
 @utility font-emoji {
   font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
