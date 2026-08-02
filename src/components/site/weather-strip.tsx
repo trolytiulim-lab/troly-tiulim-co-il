@@ -5,8 +5,9 @@ const SPOTS = [
   { city: "לרנקה", country: "קפריסין", lat: 34.92, lon: 33.62 },
   { city: "בודפשט", country: "הונגריה", lat: 47.5, lon: 19.04 },
   { city: "סנטוריני", country: "יוון", lat: 36.39, lon: 25.46 },
-  { city: "ליסבון", country: "פורטוגל", lat: 38.72, lon: -9.14 },
-  { city: "צרמט", country: "שוויץ", lat: 46.02, lon: 7.75 },
+  { city: "פראג", country: "צ׳כיה", lat: 50.08, lon: 14.44 },
+  { city: "טביליסי", country: "גאורגיה", lat: 41.72, lon: 44.79 },
+  { city: "רומא", country: "איטליה", lat: 41.9, lon: 12.5 },
 ];
 
 type Row = { city: string; country: string; temp: number | null; code: number | null };
@@ -63,7 +64,7 @@ export function WeatherStrip() {
           <Loader2 className="h-4 w-4 animate-spin" /> טוען מזג אוויר ביעדים...
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {rows.map((r, i) => {
             const Icon = icon(r.code);
             return (
@@ -85,9 +86,6 @@ export function WeatherStrip() {
           })}
         </div>
       )}
-      <p className="mt-4 text-center text-xs text-muted-foreground">
-        מזג האוויר מתעדכן בזמן אמת ביעדים הפופולריים שלנו ☀️
-      </p>
     </div>
   );
 }

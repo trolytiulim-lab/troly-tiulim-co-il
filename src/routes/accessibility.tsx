@@ -44,7 +44,7 @@ function AccessibilityPage() {
 
         <h1 className="mt-6 text-3xl font-extrabold text-foreground sm:text-4xl">הצהרת נגישות</h1>
         <p className="mt-3 text-sm leading-7 text-muted-foreground">
-          אתר טרולי טיולים (Trolley Trips) פועל להנגשת האתר והשירותים שלו לאנשים עם מוגבלות, מתוך
+          אתר טרולי טיולים (TROLY-TIULIM) פועל להנגשת האתר והשירותים שלו לאנשים עם מוגבלות, מתוך
           תפיסה שכל אדם זכאי לקבל שירות שוויוני, מכובד ועצמאי. עמוד זה מתוחזק על ידי בעלי האתר
           ומתעדכן מעת לעת.
         </p>

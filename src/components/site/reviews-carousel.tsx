@@ -12,8 +12,9 @@ type Review = {
 const REVIEWS: Review[] = [
   { name: "יעל ואור כהן", trip: "בודפשט • 6 ימים", initials: "יכ", color: "bg-ocean-200 text-ocean-900", text: "חזרנו מבודפשט והיה מושלם – לא היינו צריכים לדאוג לכלום. כל המלצה קלעה בול, גם המסעדות וגם התצפיות." },
   { name: "רועי אברהמי", trip: "קפריסין • 5 ימים", initials: "רא", color: "bg-primary/30 text-ocean-900", text: "תוך חצי שעה הכל היה סגור מא׳ עד ת׳ – אפילו לא היינו צריכים לפתוח גוגל. שירות ברמה אחרת." },
-  { name: "משפחת לוי", trip: "האלפים • 7 ימים", initials: "מל", color: "bg-sand-200 text-ocean-900", text: "טסנו עם שלושה ילדים ולא היה רגע אחד של לחץ. מרחקים קצרים, אוכל מתאים והכל מסודר מראש." },
-  { name: "שירה פרידמן", trip: "ליסבון • 5 ימים", initials: "שפ", color: "bg-ocean-100 text-ocean-900", text: "המסלול היה מדויק לקצב שלנו – גם אקשן וגם רגעים רגועים. כבר סגרנו איתם את הטיול הבא." },
+  { name: "משפחת לוי", trip: "פראג • 5 ימים", initials: "מל", color: "bg-sand-200 text-ocean-900", text: "טסנו עם שלושה ילדים ולא היה רגע אחד של לחץ. מרחקים קצרים, אוכל מתאים והכל מסודר מראש." },
+  { name: "שירה פרידמן", trip: "רומא • 5 ימים", initials: "שפ", color: "bg-ocean-100 text-ocean-900", text: "המסלול היה מדויק לקצב שלנו – גם אקשן וגם רגעים רגועים. כבר סגרנו איתם את הטיול הבא." },
+
   { name: "אבי ומיכל", trip: "סנטוריני • 5 ימים", initials: "אמ", color: "bg-primary/20 text-ocean-900", text: "הליווי בוואטסאפ לאורך כל הטיול היה מה שעשה את ההבדל. תשובה לכל שאלה תוך דקות." },
 ];
 
@@ -36,20 +37,8 @@ export function ReviewsCarousel() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
-        <div className="flex items-center gap-3 rounded-2xl border border-border bg-card px-5 py-3 shadow-sm">
-          <span className="text-3xl font-extrabold text-primary" dir="ltr">94%</span>
-          <span className="text-sm font-semibold text-muted-foreground">לקוחות חוזרים</span>
-        </div>
-        <div className="flex items-center gap-2 rounded-2xl border border-border bg-card px-5 py-3 shadow-sm">
-          <div className="flex" dir="ltr" aria-hidden="true">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-            ))}
-          </div>
-          <span className="text-sm font-semibold text-muted-foreground">5.0 מתוך 5</span>
-        </div>
-      </div>
+
+
 
       <div className="relative overflow-hidden rounded-3xl">
         <div

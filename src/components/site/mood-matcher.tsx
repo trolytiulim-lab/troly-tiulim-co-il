@@ -1,25 +1,16 @@
 import { useState } from "react";
 import { Sparkles, RotateCcw } from "lucide-react";
 import { waLink } from "./site-data";
+import { destinations, BASE_PACKAGE, GOLD_PACKAGE } from "./destinations-data";
 
-type Answer = { label: string; value: string };
-
-const QUESTIONS: { id: string; question: string; options: Answer[] }[] = [
+const QUESTIONS: { id: string; question: string; options: { label: string; value: string }[] }[] = [
   {
     id: "vibe",
     question: "מה מדבר אליכם יותר?",
     options: [
-      { label: "🏔️ טבע פראי ונופים", value: "nature" },
-      { label: "🏙️ עיר תוססת וקולינריה", value: "city" },
       { label: "🏖️ ים, חוף ורוגע", value: "beach" },
-    ],
-  },
-  {
-    id: "length",
-    question: "כמה זמן יש לכם?",
-    options: [
-      { label: "✈️ חופשה קצרה (3-4 ימים)", value: "short" },
-      { label: "🧳 חופשה ארוכה (6+ ימים)", value: "long" },
+      { label: "🏙️ עיר, קולינריה ותרבות", value: "city" },
+      { label: "🏔️ טבע, נופים ואקטיבי", value: "nature" },
     ],
   },
   {
@@ -31,25 +22,23 @@ const QUESTIONS: { id: string; question: string; options: Answer[] }[] = [
       { label: "🎒 חברים / לבד", value: "friends" },
     ],
   },
+  {
+    id: "tier",
+    question: "איזו רמת חבילה מתאימה לכם?",
+    options: [
+      { label: "🧳 רק טרולי – טיסות, מלון 3★ והעברות", value: "base" },
+      { label: "✨ טרולי זהב – בוטיק 4★, העברות פרטיות ו-VIP", value: "gold" },
+    ],
+  },
 ];
 
-type Result = { title: string; days: string; text: string; emoji: string };
-
-function recommend(a: Record<string, string>): Result {
-  const { vibe, length, who } = a;
-  if (vibe === "nature" && length === "long")
-    return { emoji: "🏔️", title: "רוד־טריפ באלפים השוויצריים", days: "7 ימים", text: "אגמים, כפרים ומסלולי הליכה בקצב שלכם – עם רכב שכור ומלונות לאורך הדרך." };
-  if (vibe === "nature")
-    return { emoji: "🌄", title: "טבע ואקשן בצפון איטליה", days: "4 ימים", text: "דולומיטים, אגם גארדה ותצפיות מטורפות – מקסימום נוף במינימום זמן." };
-  if (vibe === "city" && who === "family")
-    return { emoji: "🏙️", title: "בודפשט למשפחות", days: "5 ימים", text: "מרחקים קצרים, ספא מים חמים, שייט על הדנובה ופארקים – בלי ילדים עייפים." };
-  if (vibe === "city")
-    return { emoji: "🍷", title: "ליסבון קולינרית", days: "5 ימים", text: "רחובות צבעוניים, טרמים היסטוריים, מסעדות שף ושקיעות מעל הנהר." };
-  if (vibe === "beach" && who === "family")
-    return { emoji: "🏝️", title: "לרנקה בקלות למשפחות", days: "5 ימים", text: "חופים רגועים, אטרקציות קרובות ואוכל שמתאים לכולם – טיסה קצרה, אפס טרטור." };
-  if (vibe === "beach" && length === "long")
-    return { emoji: "🌊", title: "איי יוון – סנטוריני ומסביב", days: "7 ימים", text: "כפרים לבנים, שקיעות בלתי נשכחות, שייט וחופים נסתרים." };
-  return { emoji: "☀️", title: "סופ״ש מושלם בקפריסין", days: "3-4 ימים", text: "בטן־גב, סיורים קלילים וקולינריה ים תיכונית – מרענן בדיוק במידה." };
+function pickDestinationId(a: Record<string, string>) {
+  const { vibe, who } = a;
+  if (vibe === "beach") return who === "family" ? "larnaca" : "santorini";
+  if (vibe === "nature") return "tbilisi";
+  if (who === "family") return "budapest";
+  if (who === "friends") return "prague";
+  return "rome";
 }
 
 export function MoodMatcher() {
@@ -57,7 +46,10 @@ export function MoodMatcher() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
 
   const done = step >= QUESTIONS.length;
-  const result = done ? recommend(answers) : null;
+  const dest = done ? destinations.find((d) => d.id === pickDestinationId(answers))! : null;
+  const isGold = answers.tier === "gold";
+  const pack = isGold ? GOLD_PACKAGE : BASE_PACKAGE;
+  const price = dest ? (isGold ? dest.gold : dest.base) : 0;
 
   const pick = (id: string, value: string) => {
     setAnswers((a) => ({ ...a, [id]: value }));
@@ -67,11 +59,11 @@ export function MoodMatcher() {
   return (
     <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-card p-6 shadow-xl sm:p-8">
       <div className="mb-5 flex items-center justify-center gap-2 text-primary">
-        <Sparkles className="h-5 w-5 animate-[float-mid_4s_ease-in-out_infinite]" />
-        <span className="text-sm font-bold tracking-wide">מחשבון הטיול לפי מצב רוח</span>
+        <Sparkles className="h-5 w-5" />
+        <span className="text-sm font-bold tracking-wide">בונים לכם התאמה ראשונית</span>
       </div>
 
-      {!done && result === null && (
+      {!done && (
         <div>
           <div className="mb-4 flex justify-center gap-1.5">
             {QUESTIONS.map((q, i) => (
@@ -99,23 +91,34 @@ export function MoodMatcher() {
         </div>
       )}
 
-      {result && (
+      {dest && (
         <div className="text-center">
-          <div className="text-5xl">{result.emoji}</div>
-          <div className="mt-3 inline-block rounded-full bg-ocean-100 px-4 py-1 text-xs font-bold text-ocean-700">
-            הטיול שהכי מתאים לכם
+          <div className="inline-block rounded-full bg-ocean-100 px-4 py-1 text-xs font-bold text-ocean-700">
+            ההתאמה שלנו עבורכם
           </div>
-          <h3 className="mt-3 text-2xl font-extrabold text-card-foreground">{result.title}</h3>
-          <div className="mt-1 text-sm font-semibold text-primary">{result.days}</div>
-          <p className="mt-3 leading-relaxed text-muted-foreground">{result.text}</p>
+          <h3 className="mt-3 text-2xl font-extrabold text-card-foreground">{dest.title}</h3>
+          <div className="mt-1 text-sm font-semibold text-primary">
+            חבילת {pack.name} • החל מ־<span dir="ltr">${price}</span> לאדם
+          </div>
+          <p className="mt-3 leading-relaxed text-muted-foreground">{dest.description}</p>
+          <ul className="mx-auto mt-4 max-w-sm space-y-1 text-right text-sm text-muted-foreground">
+            {pack.includes.map((it) => (
+              <li key={it}>• {it}</li>
+            ))}
+          </ul>
+          <p className="mt-4 text-xs text-muted-foreground">
+            המחירים הם נקודת פתיחה ומשתנים לפי תאריכים, זמינות וכמות המטיילים. הצעה מדויקת נשלחת אחרי בדיקה.
+          </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={waLink(`היי, המחשבון המליץ לי על "${result.title}" – אשמח לפרטים`)}
+              href={waLink(
+                `היי, בהתאמה קיבלתי ${dest.title} עם חבילת ${pack.name} – אשמח להצעה מדויקת`,
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center rounded-full bg-whatsapp px-6 py-3 text-base font-bold text-white shadow-[0_10px_30px_-8px_var(--whatsapp)] transition-all hover:-translate-y-0.5 hover:bg-whatsapp-dark sm:w-auto"
             >
-              תכננו לי את הטיול הזה
+              קבלו הצעה מדויקת בוואטסאפ
             </a>
             <button
               type="button"
