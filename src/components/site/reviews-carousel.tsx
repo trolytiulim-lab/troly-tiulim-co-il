@@ -36,20 +36,8 @@ export function ReviewsCarousel() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
-        <div className="flex items-center gap-3 rounded-2xl border border-border bg-card px-5 py-3 shadow-sm">
-          <span className="text-3xl font-extrabold text-primary" dir="ltr">94%</span>
-          <span className="text-sm font-semibold text-muted-foreground">לקוחות חוזרים</span>
-        </div>
-        <div className="flex items-center gap-2 rounded-2xl border border-border bg-card px-5 py-3 shadow-sm">
-          <div className="flex" dir="ltr" aria-hidden="true">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-            ))}
-          </div>
-          <span className="text-sm font-semibold text-muted-foreground">5.0 מתוך 5</span>
-        </div>
-      </div>
+
+
 
       <div className="relative overflow-hidden rounded-3xl">
         <div
