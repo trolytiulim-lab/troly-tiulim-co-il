@@ -232,7 +232,7 @@ function Index() {
               className="group inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-3.5 text-base font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow sm:text-lg"
             >
               <span>לתכנון החופשה בוואטסאפ</span>
-              <ArrowLeft className="h-5 w-5" />
+              <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
