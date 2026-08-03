@@ -262,8 +262,8 @@ function Index() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b, i) => (
               <Reveal key={b.title} delay={i * 70}>
-                <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-ocean-700">
+                <div className="group flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:border-primary/50 hover:shadow-xl">
+                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-ocean-700 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                     <b.Icon className="h-5 w-5" />
                   </div>
                   <h3 className="text-base font-extrabold text-foreground">{b.title}</h3>
