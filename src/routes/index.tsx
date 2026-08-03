@@ -199,6 +199,14 @@ function Index() {
           className="absolute inset-0 bg-gradient-to-b from-ocean-900/85 via-ocean-900/65 to-ocean-900/90"
           aria-hidden="true"
         />
+        <div
+          className="pointer-events-none absolute -right-24 top-10 h-64 w-64 rounded-full bg-primary/25 blur-3xl animate-float-slow"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-primary/20 blur-3xl animate-float-mid"
+          aria-hidden="true"
+        />
 
         <div className="relative mx-auto flex max-w-4xl flex-col items-center px-5 py-16 text-center sm:px-6 md:py-24">
           <img
@@ -206,7 +214,7 @@ function Index() {
             alt="לוגו טרולי טיולים"
             width={320}
             height={320}
-            className="mb-6 h-24 w-24 rounded-full bg-white object-cover ring-4 ring-primary/60 sm:h-28 sm:w-28"
+            className="mb-6 h-24 w-24 rounded-full bg-white object-cover ring-4 ring-primary/60 animate-float-mid sm:h-28 sm:w-28"
             loading="eager"
           />
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
@@ -234,6 +242,13 @@ function Index() {
               <span dir="ltr">{PHONE_DISPLAY}</span>
             </a>
           </div>
+
+          <img
+            src={trolyPlane.url}
+            alt="מטוס ממותג של טרולי טיולים – TROLY-TIULIM"
+            loading="eager"
+            className="mt-10 w-full max-w-2xl animate-float-slow drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
+          />
         </div>
       </section>
 
@@ -269,7 +284,7 @@ function Index() {
               שישה יעדים שאנחנו מכירים לעומק. לחצו על החץ בכרטיס לתמונות נוספות מהיעד.
             </p>
           </div>
-          <DestinationGrid />
+          <Reveal><DestinationGrid /></Reveal>
           <p className="mt-6 text-center text-xs text-muted-foreground">
             המחירים הם החל מ־, לאדם בחדר זוגי, ומשתנים לפי תאריכים וזמינות. מחיר מחייב נמסר בהצעה אישית.
           </p>
@@ -282,7 +297,7 @@ function Index() {
           <div className="mb-6 text-center">
             <h2 className="text-xl font-extrabold md:text-2xl">מזג האוויר עכשיו ביעדים שלנו</h2>
           </div>
-          <WeatherStrip />
+          <Reveal><WeatherStrip /></Reveal>
         </div>
       </section>
 
@@ -295,9 +310,9 @@ function Index() {
               עונים על שלוש שאלות, מקבלים יעד וחבילה מתאימים, ובוחרים תאריך יציאה.
             </p>
           </div>
-          <MoodMatcher />
+          <Reveal><MoodMatcher /></Reveal>
           <div className="mt-14">
-            <DepartureCalendar />
+            <Reveal><DepartureCalendar /></Reveal>
           </div>
         </div>
       </section>
@@ -344,7 +359,7 @@ function Index() {
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">מה מטיילים מספרים</h2>
           </div>
-          <ReviewsCarousel />
+          <Reveal><ReviewsCarousel /></Reveal>
         </div>
       </section>
 
