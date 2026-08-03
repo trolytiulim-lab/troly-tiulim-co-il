@@ -284,7 +284,7 @@ function Index() {
               שישה יעדים שאנחנו מכירים לעומק. לחצו על החץ בכרטיס לתמונות נוספות מהיעד.
             </p>
           </div>
-          <DestinationGrid />
+          <Reveal><DestinationGrid /></Reveal>
           <p className="mt-6 text-center text-xs text-muted-foreground">
             המחירים הם החל מ־, לאדם בחדר זוגי, ומשתנים לפי תאריכים וזמינות. מחיר מחייב נמסר בהצעה אישית.
           </p>
@@ -297,7 +297,7 @@ function Index() {
           <div className="mb-6 text-center">
             <h2 className="text-xl font-extrabold md:text-2xl">מזג האוויר עכשיו ביעדים שלנו</h2>
           </div>
-          <WeatherStrip />
+          <Reveal><WeatherStrip /></Reveal>
         </div>
       </section>
 
@@ -310,9 +310,9 @@ function Index() {
               עונים על שלוש שאלות, מקבלים יעד וחבילה מתאימים, ובוחרים תאריך יציאה.
             </p>
           </div>
-          <MoodMatcher />
+          <Reveal><MoodMatcher /></Reveal>
           <div className="mt-14">
-            <DepartureCalendar />
+            <Reveal><DepartureCalendar /></Reveal>
           </div>
         </div>
       </section>
@@ -359,7 +359,7 @@ function Index() {
           <div className="mb-8 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">מה מטיילים מספרים</h2>
           </div>
-          <ReviewsCarousel />
+          <Reveal><ReviewsCarousel /></Reveal>
         </div>
       </section>
 
