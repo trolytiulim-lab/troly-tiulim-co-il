@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, Check } from "lucide-react";
 import { destinations, BASE_PACKAGE, GOLD_PACKAGE, type Destination } from "./destinations-data";
 import { waLink } from "./site-data";
+import { Reveal } from "./motion";
 
 function Tier({
   name,
