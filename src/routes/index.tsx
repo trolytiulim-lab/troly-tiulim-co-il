@@ -401,7 +401,7 @@ function Index() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-base font-extrabold text-white shadow-[0_14px_40px_-10px_var(--whatsapp)] transition-all hover:-translate-y-0.5 hover:bg-whatsapp-dark"
+              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-base font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow"
             >
               שיחה בוואטסאפ
             </a>
