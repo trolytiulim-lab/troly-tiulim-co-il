@@ -77,6 +77,8 @@
   --animate-stamp: stamp-wobble 6s ease-in-out infinite;
   --animate-marquee: marquee 40s linear infinite;
   --animate-soft-pulse: soft-pulse 2.4s ease-in-out infinite;
+  --animate-cta-glow: cta-glow 2.8s ease-in-out infinite;
+  --animate-cta-glow-primary: cta-glow-primary 3s ease-in-out infinite;
 }
 
 @keyframes float-slow {
