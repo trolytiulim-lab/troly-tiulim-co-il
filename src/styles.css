@@ -77,6 +77,8 @@
   --animate-stamp: stamp-wobble 6s ease-in-out infinite;
   --animate-marquee: marquee 40s linear infinite;
   --animate-soft-pulse: soft-pulse 2.4s ease-in-out infinite;
+  --animate-cta-glow: cta-glow 2.8s ease-in-out infinite;
+  --animate-cta-glow-primary: cta-glow-primary 3s ease-in-out infinite;
 }
 
 @keyframes float-slow {
@@ -104,7 +106,17 @@
 }
 @keyframes soft-pulse {
   0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 55%, transparent); }
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 55%, transparent); }
   50% { transform: scale(1.06); box-shadow: 0 0 0 16px color-mix(in oklab, var(--whatsapp) 0%, transparent); }
+}
+@keyframes cta-glow {
+  0%, 100% { box-shadow: 0 10px 30px -12px color-mix(in oklab, var(--whatsapp) 70%, transparent), 0 0 0 0 color-mix(in oklab, var(--whatsapp) 40%, transparent); }
+  50% { box-shadow: 0 14px 38px -10px color-mix(in oklab, var(--whatsapp) 85%, transparent), 0 0 0 10px color-mix(in oklab, var(--whatsapp) 0%, transparent); }
+}
+@keyframes cta-glow-primary {
+  0%, 100% { box-shadow: 0 8px 24px -12px color-mix(in oklab, var(--primary) 70%, transparent), 0 0 0 0 color-mix(in oklab, var(--primary) 35%, transparent); }
+  50% { box-shadow: 0 12px 32px -10px color-mix(in oklab, var(--primary) 85%, transparent), 0 0 0 9px color-mix(in oklab, var(--primary) 0%, transparent); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -154,7 +154,7 @@ function Index() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-4 py-2 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-whatsapp-dark"
+              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-4 py-2 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow"
             >
               דברו איתנו בוואטסאפ
             </a>
@@ -229,10 +229,10 @@ function Index() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-3.5 text-base font-extrabold text-white shadow-[0_14px_40px_-10px_var(--whatsapp)] transition-all hover:-translate-y-0.5 hover:bg-whatsapp-dark sm:text-lg"
+              className="group inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-3.5 text-base font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow sm:text-lg"
             >
               <span>לתכנון החופשה בוואטסאפ</span>
-              <ArrowLeft className="h-5 w-5" />
+              <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
@@ -262,8 +262,8 @@ function Index() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b, i) => (
               <Reveal key={b.title} delay={i * 70}>
-                <div className="flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-ocean-700">
+                <div className="group flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:border-primary/50 hover:shadow-xl">
+                  <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-ocean-700 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                     <b.Icon className="h-5 w-5" />
                   </div>
                   <h3 className="text-base font-extrabold text-foreground">{b.title}</h3>
@@ -401,7 +401,7 @@ function Index() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-base font-extrabold text-white shadow-[0_14px_40px_-10px_var(--whatsapp)] transition-all hover:-translate-y-0.5 hover:bg-whatsapp-dark"
+              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-base font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow"
             >
               שיחה בוואטסאפ
             </a>
