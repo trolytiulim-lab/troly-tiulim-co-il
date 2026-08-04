@@ -167,14 +167,6 @@ function Index() {
             >
               <Phone className="h-4 w-4" />
             </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-4 py-2 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow"
-            >
-              דברו איתנו בוואטסאפ
-            </a>
             <button
               type="button"
               aria-label="פתיחת תפריט"
