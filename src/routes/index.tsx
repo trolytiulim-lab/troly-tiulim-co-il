@@ -233,7 +233,7 @@ function Index() {
             מסלולים אקטיביים ומדויקים לחו"ל, כולל טיסות ומלונות – בלי לבזבז שעות מול המסך ובלי כאבי
             ראש
           </p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center gap-4">
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -245,12 +245,23 @@ function Index() {
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-3 text-base font-bold text-white backdrop-blur-md transition-all hover:bg-white/25"
+              aria-label={`התקשרו אלינו ${PHONE_DISPLAY}`}
+              className="animate-phone-bounce inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-full border border-white/45 bg-white/10 px-5 py-3 text-white backdrop-blur-md transition-all hover:bg-white/25 sm:gap-3 sm:px-7"
             >
-              <Phone className="h-4 w-4" />
-              <span dir="ltr">{PHONE_DISPLAY}</span>
+              <Phone className="h-5 w-5 shrink-0 text-primary" />
+              <span className="text-xs font-bold text-white/85 sm:text-sm">לחצו לחיוג</span>
+              <span
+                dir="ltr"
+                className="whitespace-nowrap text-2xl font-extrabold tracking-wider tabular-nums sm:text-3xl"
+              >
+                052-8
+                <span className="animate-digit-flash text-primary">55</span>
+                <span className="animate-digit-flash text-primary">66</span>
+                11
+              </span>
             </a>
           </div>
+
 
           <img
             src={trolyPlane.url}
