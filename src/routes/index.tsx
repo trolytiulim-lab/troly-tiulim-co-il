@@ -26,11 +26,11 @@ import { WeatherStrip } from "@/components/site/weather-strip";
 import { MoodMatcher } from "@/components/site/mood-matcher";
 import { DestinationGrid } from "@/components/site/destination-grid";
 
-const SITE = "https://trolley-trips-rtl-landing.lovable.app";
-const OG_IMAGE = SITE + trolyPlane.url;
-const TITLE = "טרולי טיולים | חופשות מותאמות אישית לאירופה";
+const SITE = "https://troly-tiulim.co.il";
+const OG_IMAGE = SITE + trolleyLogo.url;
+const TITLE = "טרולי טיולים";
 const DESC =
-  "TROLY-TIULIM בונים לכם מסלול יום־יום מדויק לקפריסין, בודפשט, סנטוריני, פראג, טביליסי ורומא – טיסות, מלון והעברות. וואטסאפ 052-8556611.";
+  "מסלולים אקטיביים ומדויקים בהתאמה אישית – בלי לבזבז שעות מול המסך ובלי כאבי ראש.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE + "/" },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "מטוס ממותג של טרולי טיולים – TROLY-TIULIM" },
+      { property: "og:image:alt", content: "הלוגו הרשמי של טרולי טיולים – TROLY-TIULIM" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
     ],
