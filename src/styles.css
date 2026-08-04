@@ -79,6 +79,17 @@
   --animate-soft-pulse: soft-pulse 2.4s ease-in-out infinite;
   --animate-cta-glow: cta-glow 2.8s ease-in-out infinite;
   --animate-cta-glow-primary: cta-glow-primary 3s ease-in-out infinite;
+  --animate-phone-bounce: phone-bounce 2.6s ease-in-out infinite;
+  --animate-digit-flash: digit-flash 2s ease-in-out infinite;
+}
+
+@keyframes phone-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  45% { transform: translateY(-4px) scale(1.03); }
+}
+@keyframes digit-flash {
+  0%, 100% { opacity: 1; text-shadow: 0 0 12px color-mix(in oklab, var(--primary) 60%, transparent); }
+  50% { opacity: 0.72; text-shadow: 0 0 22px color-mix(in oklab, var(--primary) 90%, transparent); }
 }
 
 @keyframes float-slow {
