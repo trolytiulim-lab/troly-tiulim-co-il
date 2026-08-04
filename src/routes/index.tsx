@@ -299,10 +299,13 @@ function Index() {
       <section id="destinations" className="border-y border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
           <div className="mb-10 text-center">
-            <h2 className="text-2xl font-extrabold md:text-3xl">היעדים שלנו ושתי רמות החבילה</h2>
-            <p className="mt-3 text-muted-foreground">
-              שישה יעדים שאנחנו מכירים לעומק. לחצו על החץ בכרטיס לתמונות נוספות מהיעד.
+            <h2 className="text-2xl font-extrabold md:text-3xl">
+              הלהיטים של התקופה האחרונה – היעדים שמובילים בגדול
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              (מתעדכן אוטומטית לפי ההזמנות החמות ביותר)
             </p>
+
           </div>
           <Reveal><DestinationGrid /></Reveal>
           <p className="mt-6 text-center text-xs text-muted-foreground">
