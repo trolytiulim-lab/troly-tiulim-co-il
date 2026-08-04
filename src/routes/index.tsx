@@ -26,11 +26,11 @@ import { WeatherStrip } from "@/components/site/weather-strip";
 import { MoodMatcher } from "@/components/site/mood-matcher";
 import { DestinationGrid } from "@/components/site/destination-grid";
 
-const SITE = "https://trolley-trips-rtl-landing.lovable.app";
-const OG_IMAGE = SITE + trolyPlane.url;
-const TITLE = "טרולי טיולים | חופשות מותאמות אישית לאירופה";
+const SITE = "https://troly-tiulim.co.il";
+const OG_IMAGE = SITE + trolleyLogo.url;
+const TITLE = "טרולי טיולים";
 const DESC =
-  "TROLY-TIULIM בונים לכם מסלול יום־יום מדויק לקפריסין, בודפשט, סנטוריני, פראג, טביליסי ורומא – טיסות, מלון והעברות. וואטסאפ 052-8556611.";
+  "מסלולים אקטיביים ומדויקים בהתאמה אישית – בלי לבזבז שעות מול המסך ובלי כאבי ראש.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE + "/" },
       { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:alt", content: "מטוס ממותג של טרולי טיולים – TROLY-TIULIM" },
+      { property: "og:image:alt", content: "הלוגו הרשמי של טרולי טיולים – TROLY-TIULIM" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: OG_IMAGE },
     ],
@@ -151,6 +151,23 @@ function Index() {
           </nav>
           <div className="flex items-center gap-2">
             <a
+              href={`tel:${PHONE_TEL}`}
+              className="group hidden items-center gap-2 rounded-full bg-gradient-to-l from-primary to-ocean-700 px-4 py-2 text-white shadow-lg ring-2 ring-primary/40 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl animate-cta-glow-primary sm:inline-flex"
+            >
+              <Phone className="h-4 w-4 animate-soft-pulse" />
+              <span className="text-[0.7rem] font-bold opacity-90">לחצו לחיוג</span>
+              <span dir="ltr" className="text-base font-extrabold tracking-wider tabular-nums">
+                {PHONE_DISPLAY}
+              </span>
+            </a>
+            <a
+              href={`tel:${PHONE_TEL}`}
+              aria-label={`התקשרו אלינו ${PHONE_DISPLAY}`}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-l from-primary to-ocean-700 text-white shadow-md animate-cta-glow-primary sm:hidden"
+            >
+              <Phone className="h-4 w-4" />
+            </a>
+            <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -221,8 +238,8 @@ function Index() {
             חופשה מותאמת אישית – מסלול מדויק, בלי כאב ראש
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 drop-shadow sm:text-lg">
-            קפריסין, בודפשט, סנטוריני, פראג, טביליסי ורומא – טיסות, מלון והעברות בשתי רמות חבילה
-            ברורות, עם מסלול יום־יום שנבנה עבורכם.
+            מסלולים אקטיביים ומדויקים לחו"ל, כולל טיסות ומלונות – בלי לבזבז שעות מול המסך ובלי כאבי
+            ראש
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
             <a

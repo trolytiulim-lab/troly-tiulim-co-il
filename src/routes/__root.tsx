@@ -79,21 +79,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "טרולי טיולים | חופשה בהתאמה אישית" },
-      { name: "description", content: "בונים לכם מסלול אקטיבי, מדויק ומותאם אישית לחו\"ל – בלי לבזבז שעות מול המסך ובלי כאבי ראש. ליווי צמוד בוואטסאפ 052-8556611." },
+      { title: "טרולי טיולים" },
+      { name: "description", content: "מסלולים אקטיביים ומדויקים בהתאמה אישית – בלי לבזבז שעות מול המסך ובלי כאבי ראש." },
       { name: "author", content: "TROLY-TIULIM" },
-      { property: "og:title", content: "טרולי טיולים | חופשה בהתאמה אישית" },
-      { property: "og:description", content: "בונים לכם מסלול אקטיבי, מדויק ומותאם אישית לחו\"ל – בלי לבזבז שעות מול המסך ובלי כאבי ראש." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://trolley-trips-rtl-landing.lovable.app/" },
       { property: "og:site_name", content: "טרולי טיולים" },
-      { property: "og:image", content: "https://trolley-trips-rtl-landing.lovable.app/__l5e/assets-v1/4e273fcd-ade6-4d04-b352-d2b650226c2f/troly-plane.png" },
-      { property: "og:image:alt", content: "מטוס ממותג של טרולי טיולים" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@trolleytrips" },
-      { name: "twitter:title", content: "טרולי טיולים | חופשה בהתאמה אישית" },
-      { name: "twitter:description", content: "בונים לכם מסלול אקטיבי, מדויק ומותאם אישית לחו\"ל – בלי לבזבז שעות מול המסך ובלי כאבי ראש." },
-      { name: "twitter:image", content: "https://trolley-trips-rtl-landing.lovable.app/__l5e/assets-v1/4e273fcd-ade6-4d04-b352-d2b650226c2f/troly-plane.png" },
     ],
     links: [
       {

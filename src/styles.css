@@ -106,8 +106,6 @@
 }
 @keyframes soft-pulse {
   0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 55%, transparent); }
-@keyframes soft-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in oklab, var(--whatsapp) 55%, transparent); }
   50% { transform: scale(1.06); box-shadow: 0 0 0 16px color-mix(in oklab, var(--whatsapp) 0%, transparent); }
 }
 @keyframes cta-glow {
