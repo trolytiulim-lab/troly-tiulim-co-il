@@ -26,12 +26,11 @@ import { WeatherStrip } from "@/components/site/weather-strip";
 import { MoodMatcher } from "@/components/site/mood-matcher";
 import { DestinationGrid } from "@/components/site/destination-grid";
 
-const SITE = "https://troly-tiulim.co.il";
-// og:image must be a fully-qualified, publicly reachable URL. The custom
-// domain (troly-tiulim.co.il) is not connected yet, so we serve the image
-// from the published Lovable domain where the CDN asset is always available.
-const PUBLISHED = "https://troly-tiulimcoil.lovable.app";
-const OG_IMAGE = PUBLISHED + trolleyLogo.url;
+// Absolute, publicly reachable URLs are required by social crawlers.
+// The custom domain (troly-tiulim.co.il) is not connected yet, so both the
+// page URL and the share image use the live published Lovable domain.
+const SITE = "https://troly-tiulimcoil.lovable.app";
+const OG_IMAGE = "https://troly-tiulimcoil.lovable.app/og-image.jpg";
 const TITLE = "טרולי טיולים";
 const DESC =
   "מסלולים אקטיביים ומדויקים בהתאמה אישית – בלי לבזבז שעות מול המסך ובלי כאבי ראש.";
