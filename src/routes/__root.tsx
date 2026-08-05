@@ -85,6 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "טרולי טיולים" },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "google-site-verification",
+        content: "zd7c51jRaUNMcUWT2t_YK052jKZ8nY5GIGGIEN0oog8",
+      },
     ],
     links: [
       {
