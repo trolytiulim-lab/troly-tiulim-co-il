@@ -27,7 +27,11 @@ import { MoodMatcher } from "@/components/site/mood-matcher";
 import { DestinationGrid } from "@/components/site/destination-grid";
 
 const SITE = "https://troly-tiulim.co.il";
-const OG_IMAGE = SITE + trolleyLogo.url;
+// og:image must be a fully-qualified, publicly reachable URL. The custom
+// domain (troly-tiulim.co.il) is not connected yet, so we serve the image
+// from the published Lovable domain where the CDN asset is always available.
+const PUBLISHED = "https://troly-tiulimcoil.lovable.app";
+const OG_IMAGE = PUBLISHED + trolleyLogo.url;
 const TITLE = "טרולי טיולים";
 const DESC =
   "מסלולים אקטיביים ומדויקים בהתאמה אישית – בלי לבזבז שעות מול המסך ובלי כאבי ראש.";
