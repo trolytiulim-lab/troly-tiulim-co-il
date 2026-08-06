@@ -370,16 +370,15 @@ function Index() {
       {/* Destinations + packages */}
       <section id="destinations" className="border-y border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
-          <div className="mb-10 text-center">
+          <Reveal className="mb-10 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">
               הלהיטים של התקופה האחרונה – היעדים שמובילים בגדול
             </h2>
             <p className="mt-3 text-sm text-muted-foreground">
               (מתעדכן אוטומטית לפי ההזמנות החמות ביותר)
             </p>
-
-          </div>
-          <Reveal><DestinationGrid /></Reveal>
+          </Reveal>
+          <Reveal delay={90}><DestinationGrid /></Reveal>
           <p className="mt-6 text-center text-xs text-muted-foreground">
             המחירים הם החל מ־, לאדם בחדר זוגי, ומשתנים לפי תאריכים וזמינות. מחיר מחייב נמסר בהצעה אישית.
           </p>
@@ -389,9 +388,9 @@ function Index() {
       {/* Weather */}
       <section className="bg-card">
         <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6">
-          <div className="mb-6 text-center">
+          <Reveal className="mb-6 text-center">
             <h2 className="text-xl font-extrabold md:text-2xl">מזג האוויר עכשיו ביעדים שלנו</h2>
-          </div>
+          </Reveal>
           <Reveal><WeatherStrip /></Reveal>
         </div>
       </section>
@@ -399,13 +398,13 @@ function Index() {
       {/* Planner */}
       <section id="planner" className="border-y border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
-          <div className="mb-10 text-center">
+          <Reveal className="mb-10 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">שתי דקות – ונדע מאיפה להתחיל</h2>
             <p className="mt-3 text-muted-foreground">
               עונים על שלוש שאלות, מקבלים יעד וחבילה מתאימים, ובוחרים תאריך יציאה.
             </p>
-          </div>
-          <Reveal><MoodMatcher /></Reveal>
+          </Reveal>
+          <Reveal delay={90}><MoodMatcher /></Reveal>
           <div className="mt-14">
             <Reveal><DepartureCalendar /></Reveal>
           </div>
@@ -458,9 +457,9 @@ function Index() {
       {/* Reviews */}
       <section className="border-y border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6">
-          <div className="mb-8 text-center">
+          <Reveal className="mb-8 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">מה מטיילים מספרים</h2>
-          </div>
+          </Reveal>
           <Reveal><ReviewsCarousel /></Reveal>
         </div>
       </section>
@@ -496,8 +495,10 @@ function Index() {
       {/* Contact band */}
       <section id="contact" className="bg-ocean-900 text-white">
         <div className="mx-auto max-w-4xl px-5 py-14 text-center sm:px-6 md:py-16">
-          <h2 className="text-2xl font-extrabold md:text-3xl">מוכנים לתכנן את החופשה הבאה?</h2>
-          <p className="mt-2 text-white/80">דברו איתנו ישירות – וואטסאפ, טלפון או מייל.</p>
+          <Reveal>
+            <h2 className="text-2xl font-extrabold md:text-3xl">מוכנים לתכנן את החופשה הבאה?</h2>
+            <p className="mt-2 text-white/80">דברו איתנו ישירות – וואטסאפ, טלפון או מייל.</p>
+          </Reveal>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
               href={WHATSAPP_URL}
