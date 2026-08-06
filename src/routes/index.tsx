@@ -17,6 +17,24 @@ import trolleyLogo from "@/assets/trolley-logo.jpg.asset.json";
 import trolyPlane from "@/assets/troly-plane.png.asset.json";
 import heroPhoto from "@/assets/photo-santorini-2.jpg.asset.json";
 import familyPhoto from "@/assets/photo-larnaca-1.jpg.asset.json";
+import planePhoto1 from "@/assets/photo-santorini-1.jpg.asset.json";
+import planePhoto2 from "@/assets/photo-budapest-1.jpg.asset.json";
+import planePhoto3 from "@/assets/photo-prague-1.jpg.asset.json";
+
+const planePhotos = [planePhoto1, planePhoto2, planePhoto3];
+
+const marqueeItems = [
+  "קפריסין",
+  "בודפשט",
+  "פראג",
+  "רומא",
+  "סנטוריני",
+  "טביליסי",
+  "טיסות ומלונות כלול",
+  "מסלול יום־יום מדויק",
+  "ליווי אישי בוואטסאפ",
+];
+
 
 import { PHONE_DISPLAY, PHONE_TEL, CONTACT_EMAIL, WHATSAPP_URL } from "@/components/site/site-data";
 import { Reveal } from "@/components/site/motion";
