@@ -17,6 +17,24 @@ import trolleyLogo from "@/assets/trolley-logo.jpg.asset.json";
 import trolyPlane from "@/assets/troly-plane.png.asset.json";
 import heroPhoto from "@/assets/photo-santorini-2.jpg.asset.json";
 import familyPhoto from "@/assets/photo-larnaca-1.jpg.asset.json";
+import planePhoto1 from "@/assets/photo-santorini-1.jpg.asset.json";
+import planePhoto2 from "@/assets/photo-budapest-1.jpg.asset.json";
+import planePhoto3 from "@/assets/photo-prague-1.jpg.asset.json";
+
+const planePhotos = [planePhoto1, planePhoto2, planePhoto3];
+
+const marqueeItems = [
+  "קפריסין",
+  "בודפשט",
+  "פראג",
+  "רומא",
+  "סנטוריני",
+  "טביליסי",
+  "טיסות ומלונות כלול",
+  "מסלול יום־יום מדויק",
+  "ליווי אישי בוואטסאפ",
+];
+
 
 import { PHONE_DISPLAY, PHONE_TEL, CONTACT_EMAIL, WHATSAPP_URL } from "@/components/site/site-data";
 import { Reveal } from "@/components/site/motion";
@@ -270,25 +288,71 @@ function Index() {
           </div>
 
 
-          <img
-            src={trolyPlane.url}
-            alt="מטוס ממותג של טרולי טיולים – TROLY-TIULIM"
-            loading="eager"
-            className="mt-10 w-full max-w-2xl animate-float-slow drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
-          />
+          <div className="mt-10 w-full max-w-2xl animate-plane-in">
+            <div className="relative animate-float-slow">
+              {/* Destination photos cycling behind the plane, softly faded at the edges */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-5 overflow-hidden rounded-[2.5rem] opacity-60 blur-[2px]"
+                style={{
+                  maskImage:
+                    "radial-gradient(120% 110% at 50% 50%, rgba(0,0,0,0.95) 35%, transparent 78%)",
+                  WebkitMaskImage:
+                    "radial-gradient(120% 110% at 50% 50%, rgba(0,0,0,0.95) 35%, transparent 78%)",
+                }}
+              >
+                {planePhotos.map((p, i) => (
+                  <img
+                    key={p.url}
+                    src={p.url}
+                    alt=""
+                    className="absolute inset-0 h-full w-full animate-photo-cycle object-cover"
+                    style={{ animationDelay: `${i * 5}s` }}
+                  />
+                ))}
+              </div>
+              <img
+                src={trolyPlane.url}
+                alt="מטוס ממותג של טרולי טיולים – TROLY-TIULIM"
+                loading="eager"
+                className="relative z-10 w-full rounded-2xl drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Infinite text marquee */}
+      <section className="overflow-hidden border-y border-border bg-ocean-900 py-3 text-white">
+        <div className="flex w-max animate-marquee gap-8 whitespace-nowrap">
+          {[0, 1].map((dup) => (
+            <div key={dup} className="flex gap-8" aria-hidden={dup === 1}>
+              {marqueeItems.map((t) => (
+                <span key={t} className="flex items-center gap-3 text-sm font-bold sm:text-base">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {t}
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Why */}
       <section id="why" className="bg-card">
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 md:py-16">
-          <div className="mb-8 text-center">
+          <Reveal className="mb-8 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">למה טרולי?</h2>
             <p className="mt-2 text-muted-foreground">ארבע סיבות פשוטות, בלי סיפורים.</p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          </Reveal>
+          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-3 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0 lg:pb-0">
             {benefits.map((b, i) => (
-              <Reveal key={b.title} delay={i * 70}>
+              <Reveal
+                key={b.title}
+                delay={i * 110}
+                className="w-[78%] shrink-0 snap-center sm:w-[46%] lg:w-auto"
+              >
                 <div className="group flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:border-primary/50 hover:shadow-xl">
                   <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-ocean-700 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                     <b.Icon className="h-5 w-5" />
@@ -302,19 +366,19 @@ function Index() {
         </div>
       </section>
 
+
       {/* Destinations + packages */}
       <section id="destinations" className="border-y border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
-          <div className="mb-10 text-center">
+          <Reveal className="mb-10 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">
               הלהיטים של התקופה האחרונה – היעדים שמובילים בגדול
             </h2>
             <p className="mt-3 text-sm text-muted-foreground">
               (מתעדכן אוטומטית לפי ההזמנות החמות ביותר)
             </p>
-
-          </div>
-          <Reveal><DestinationGrid /></Reveal>
+          </Reveal>
+          <Reveal delay={90}><DestinationGrid /></Reveal>
           <p className="mt-6 text-center text-xs text-muted-foreground">
             המחירים הם החל מ־, לאדם בחדר זוגי, ומשתנים לפי תאריכים וזמינות. מחיר מחייב נמסר בהצעה אישית.
           </p>
@@ -324,9 +388,9 @@ function Index() {
       {/* Weather */}
       <section className="bg-card">
         <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6">
-          <div className="mb-6 text-center">
+          <Reveal className="mb-6 text-center">
             <h2 className="text-xl font-extrabold md:text-2xl">מזג האוויר עכשיו ביעדים שלנו</h2>
-          </div>
+          </Reveal>
           <Reveal><WeatherStrip /></Reveal>
         </div>
       </section>
@@ -334,13 +398,13 @@ function Index() {
       {/* Planner */}
       <section id="planner" className="border-y border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
-          <div className="mb-10 text-center">
+          <Reveal className="mb-10 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">שתי דקות – ונדע מאיפה להתחיל</h2>
             <p className="mt-3 text-muted-foreground">
               עונים על שלוש שאלות, מקבלים יעד וחבילה מתאימים, ובוחרים תאריך יציאה.
             </p>
-          </div>
-          <Reveal><MoodMatcher /></Reveal>
+          </Reveal>
+          <Reveal delay={90}><MoodMatcher /></Reveal>
           <div className="mt-14">
             <Reveal><DepartureCalendar /></Reveal>
           </div>
@@ -352,43 +416,50 @@ function Index() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-extrabold md:text-3xl">
-                משפחות עם ילדים ושומרי כשרות – זה הבית שלנו
-              </h2>
-              <p className="mt-3 leading-relaxed text-muted-foreground">
-                אנחנו מתכננים בפועל טיולים למשפחות ולציבור הדתי, ומכירים את הפרטים שעושים את ההבדל –
-                איפה כדאי לישון, לאיזה חוף להגיע בבוקר ואיפה קונים אוכל כשר בלי לחפש שעה.
-              </p>
+              <Reveal>
+                <h2 className="text-2xl font-extrabold md:text-3xl">
+                  משפחות עם ילדים ושומרי כשרות – זה הבית שלנו
+                </h2>
+                <p className="mt-3 leading-relaxed text-muted-foreground">
+                  אנחנו מתכננים בפועל טיולים למשפחות ולציבור הדתי, ומכירים את הפרטים שעושים את ההבדל –
+                  איפה כדאי לישון, לאיזה חוף להגיע בבוקר ואיפה קונים אוכל כשר בלי לחפש שעה.
+                </p>
+              </Reveal>
               <div className="mt-6 grid gap-4">
-                {familyPerks.map((p) => (
-                  <div key={p.title} className="flex gap-4 rounded-2xl border border-border bg-background p-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-ocean-700">
-                      <p.Icon className="h-5 w-5" />
+                {familyPerks.map((p, i) => (
+                  <Reveal key={p.title} delay={140 + i * 120}>
+                    <div className="flex gap-4 rounded-2xl border border-border bg-background p-4 transition-all duration-500 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-ocean-700">
+                        <p.Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-extrabold text-foreground">{p.title}</h3>
+                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-base font-extrabold text-foreground">{p.title}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
-                    </div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
-            <img
-              src={familyPhoto.url}
-              alt="חוף פיניקודס בלרנקה, קפריסין"
-              loading="lazy"
-              className="h-64 w-full rounded-3xl object-cover shadow-lg md:h-[26rem]"
-            />
+            <Reveal delay={120}>
+              <img
+                src={familyPhoto.url}
+                alt="חוף פיניקודס בלרנקה, קפריסין"
+                loading="lazy"
+                className="h-64 w-full rounded-3xl object-cover shadow-lg transition-transform duration-700 hover:scale-[1.02] md:h-[26rem]"
+              />
+            </Reveal>
           </div>
+
         </div>
       </section>
 
       {/* Reviews */}
       <section className="border-y border-border bg-muted/50">
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6">
-          <div className="mb-8 text-center">
+          <Reveal className="mb-8 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">מה מטיילים מספרים</h2>
-          </div>
+          </Reveal>
           <Reveal><ReviewsCarousel /></Reveal>
         </div>
       </section>
@@ -396,27 +467,27 @@ function Index() {
       {/* FAQ */}
       <section className="bg-card">
         <div className="mx-auto max-w-3xl px-5 py-14 sm:px-6">
-          <div className="mb-8 text-center">
+          <Reveal className="mb-8 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">שאלות נפוצות</h2>
-          </div>
+          </Reveal>
           <div className="space-y-3">
-            {faqs.map((f) => (
-              <details
-                key={f.q}
-                className="group rounded-2xl border border-border bg-background p-5 shadow-sm transition-all open:border-primary open:shadow-md"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-right text-base font-bold text-foreground md:text-lg">
-                  {f.q}
-                  <span
-                    className="text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45"
-                    aria-hidden="true"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
-              </details>
+            {faqs.map((f, i) => (
+              <Reveal key={f.q} delay={i * 80}>
+                <details className="group rounded-2xl border border-border bg-background p-5 shadow-sm transition-all open:border-primary open:shadow-md">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-right text-base font-bold text-foreground md:text-lg">
+                    {f.q}
+                    <span
+                      className="text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45"
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
+                </details>
+              </Reveal>
             ))}
+
           </div>
         </div>
       </section>
@@ -424,8 +495,10 @@ function Index() {
       {/* Contact band */}
       <section id="contact" className="bg-ocean-900 text-white">
         <div className="mx-auto max-w-4xl px-5 py-14 text-center sm:px-6 md:py-16">
-          <h2 className="text-2xl font-extrabold md:text-3xl">מוכנים לתכנן את החופשה הבאה?</h2>
-          <p className="mt-2 text-white/80">דברו איתנו ישירות – וואטסאפ, טלפון או מייל.</p>
+          <Reveal>
+            <h2 className="text-2xl font-extrabold md:text-3xl">מוכנים לתכנן את החופשה הבאה?</h2>
+            <p className="mt-2 text-white/80">דברו איתנו ישירות – וואטסאפ, טלפון או מייל.</p>
+          </Reveal>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
               href={WHATSAPP_URL}

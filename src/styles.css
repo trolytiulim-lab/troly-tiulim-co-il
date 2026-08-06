@@ -81,6 +81,18 @@
   --animate-cta-glow-primary: cta-glow-primary 3s ease-in-out infinite;
   --animate-phone-bounce: phone-bounce 2.6s ease-in-out infinite;
   --animate-digit-flash: digit-flash 2s ease-in-out infinite;
+  --animate-plane-in: plane-in 1.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-photo-cycle: photo-cycle 15s ease-in-out infinite;
+}
+
+@keyframes plane-in {
+  0% { transform: translateX(38%) scale(0.96); opacity: 0; }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+@keyframes photo-cycle {
+  0%, 22% { opacity: 1; transform: scale(1.06) translateX(0); }
+  33%, 89% { opacity: 0; transform: scale(1.12) translateX(-2%); }
+  100% { opacity: 1; transform: scale(1.06) translateX(0); }
 }
 
 @keyframes phone-bounce {
@@ -91,6 +103,7 @@
   0%, 100% { opacity: 1; text-shadow: 0 0 12px color-mix(in oklab, var(--primary) 60%, transparent); }
   50% { opacity: 0.72; text-shadow: 0 0 22px color-mix(in oklab, var(--primary) 90%, transparent); }
 }
+
 
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) rotate(0deg); }
