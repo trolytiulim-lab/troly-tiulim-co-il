@@ -417,34 +417,41 @@ function Index() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 md:py-20">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-extrabold md:text-3xl">
-                משפחות עם ילדים ושומרי כשרות – זה הבית שלנו
-              </h2>
-              <p className="mt-3 leading-relaxed text-muted-foreground">
-                אנחנו מתכננים בפועל טיולים למשפחות ולציבור הדתי, ומכירים את הפרטים שעושים את ההבדל –
-                איפה כדאי לישון, לאיזה חוף להגיע בבוקר ואיפה קונים אוכל כשר בלי לחפש שעה.
-              </p>
+              <Reveal>
+                <h2 className="text-2xl font-extrabold md:text-3xl">
+                  משפחות עם ילדים ושומרי כשרות – זה הבית שלנו
+                </h2>
+                <p className="mt-3 leading-relaxed text-muted-foreground">
+                  אנחנו מתכננים בפועל טיולים למשפחות ולציבור הדתי, ומכירים את הפרטים שעושים את ההבדל –
+                  איפה כדאי לישון, לאיזה חוף להגיע בבוקר ואיפה קונים אוכל כשר בלי לחפש שעה.
+                </p>
+              </Reveal>
               <div className="mt-6 grid gap-4">
-                {familyPerks.map((p) => (
-                  <div key={p.title} className="flex gap-4 rounded-2xl border border-border bg-background p-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-ocean-700">
-                      <p.Icon className="h-5 w-5" />
+                {familyPerks.map((p, i) => (
+                  <Reveal key={p.title} delay={140 + i * 120}>
+                    <div className="flex gap-4 rounded-2xl border border-border bg-background p-4 transition-all duration-500 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/20 text-ocean-700">
+                        <p.Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-extrabold text-foreground">{p.title}</h3>
+                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-base font-extrabold text-foreground">{p.title}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
-                    </div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
-            <img
-              src={familyPhoto.url}
-              alt="חוף פיניקודס בלרנקה, קפריסין"
-              loading="lazy"
-              className="h-64 w-full rounded-3xl object-cover shadow-lg md:h-[26rem]"
-            />
+            <Reveal delay={120}>
+              <img
+                src={familyPhoto.url}
+                alt="חוף פיניקודס בלרנקה, קפריסין"
+                loading="lazy"
+                className="h-64 w-full rounded-3xl object-cover shadow-lg transition-transform duration-700 hover:scale-[1.02] md:h-[26rem]"
+              />
+            </Reveal>
           </div>
+
         </div>
       </section>
 
