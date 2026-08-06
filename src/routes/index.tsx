@@ -290,22 +290,15 @@ function Index() {
 
           <div className="mt-10 w-full max-w-2xl animate-plane-in">
             <div className="relative animate-float-slow">
-              <img
-                src={trolyPlane.url}
-                alt="מטוס ממותג של טרולי טיולים – TROLY-TIULIM"
-                loading="eager"
-                className="relative z-10 w-full drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
-              />
+              {/* Destination photos cycling behind the plane, softly faded at the edges */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 z-20 overflow-hidden opacity-55 mix-blend-soft-light"
+                className="pointer-events-none absolute -inset-5 overflow-hidden rounded-[2.5rem] opacity-60 blur-[2px]"
                 style={{
-                  maskImage: `url(${trolyPlane.url})`,
-                  WebkitMaskImage: `url(${trolyPlane.url})`,
-                  maskSize: "100% 100%",
-                  WebkitMaskSize: "100% 100%",
-                  maskRepeat: "no-repeat",
-                  WebkitMaskRepeat: "no-repeat",
+                  maskImage:
+                    "radial-gradient(120% 110% at 50% 50%, rgba(0,0,0,0.95) 35%, transparent 78%)",
+                  WebkitMaskImage:
+                    "radial-gradient(120% 110% at 50% 50%, rgba(0,0,0,0.95) 35%, transparent 78%)",
                 }}
               >
                 {planePhotos.map((p, i) => (
@@ -318,8 +311,15 @@ function Index() {
                   />
                 ))}
               </div>
+              <img
+                src={trolyPlane.url}
+                alt="מטוס ממותג של טרולי טיולים – TROLY-TIULIM"
+                loading="eager"
+                className="relative z-10 w-full rounded-2xl drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
+              />
             </div>
           </div>
+
         </div>
       </section>
 
