@@ -468,12 +468,14 @@ function Index() {
       {/* FAQ */}
       <section className="bg-card">
         <div className="mx-auto max-w-3xl px-5 py-14 sm:px-6">
-          <div className="mb-8 text-center">
+          <Reveal className="mb-8 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">שאלות נפוצות</h2>
-          </div>
+          </Reveal>
           <div className="space-y-3">
-            {faqs.map((f) => (
+            {faqs.map((f, i) => (
+              <Reveal key={f.q} delay={i * 80}>
               <details
+
                 key={f.q}
                 className="group rounded-2xl border border-border bg-background p-5 shadow-sm transition-all open:border-primary open:shadow-md"
               >
