@@ -474,23 +474,21 @@ function Index() {
           <div className="space-y-3">
             {faqs.map((f, i) => (
               <Reveal key={f.q} delay={i * 80}>
-              <details
-
-                key={f.q}
-                className="group rounded-2xl border border-border bg-background p-5 shadow-sm transition-all open:border-primary open:shadow-md"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-right text-base font-bold text-foreground md:text-lg">
-                  {f.q}
-                  <span
-                    className="text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45"
-                    aria-hidden="true"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
-              </details>
+                <details className="group rounded-2xl border border-border bg-background p-5 shadow-sm transition-all open:border-primary open:shadow-md">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-right text-base font-bold text-foreground md:text-lg">
+                    {f.q}
+                    <span
+                      className="text-2xl leading-none text-primary transition-transform duration-300 group-open:rotate-45"
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
+                </details>
+              </Reveal>
             ))}
+
           </div>
         </div>
       </section>
