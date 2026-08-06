@@ -270,25 +270,71 @@ function Index() {
           </div>
 
 
-          <img
-            src={trolyPlane.url}
-            alt="מטוס ממותג של טרולי טיולים – TROLY-TIULIM"
-            loading="eager"
-            className="mt-10 w-full max-w-2xl animate-float-slow drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
-          />
+          <div className="mt-10 w-full max-w-2xl animate-plane-in">
+            <div className="relative animate-float-slow">
+              <img
+                src={trolyPlane.url}
+                alt="מטוס ממותג של טרולי טיולים – TROLY-TIULIM"
+                loading="eager"
+                className="relative z-10 w-full drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 z-20 overflow-hidden opacity-55 mix-blend-soft-light"
+                style={{
+                  maskImage: `url(${trolyPlane.url})`,
+                  WebkitMaskImage: `url(${trolyPlane.url})`,
+                  maskSize: "100% 100%",
+                  WebkitMaskSize: "100% 100%",
+                  maskRepeat: "no-repeat",
+                  WebkitMaskRepeat: "no-repeat",
+                }}
+              >
+                {planePhotos.map((p, i) => (
+                  <img
+                    key={p.url}
+                    src={p.url}
+                    alt=""
+                    className="absolute inset-0 h-full w-full animate-photo-cycle object-cover"
+                    style={{ animationDelay: `${i * 5}s` }}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Infinite text marquee */}
+      <section className="overflow-hidden border-y border-border bg-ocean-900 py-3 text-white">
+        <div className="flex w-max animate-marquee gap-8 whitespace-nowrap">
+          {[0, 1].map((dup) => (
+            <div key={dup} className="flex gap-8" aria-hidden={dup === 1}>
+              {marqueeItems.map((t) => (
+                <span key={t} className="flex items-center gap-3 text-sm font-bold sm:text-base">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {t}
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Why */}
       <section id="why" className="bg-card">
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 md:py-16">
-          <div className="mb-8 text-center">
+          <Reveal className="mb-8 text-center">
             <h2 className="text-2xl font-extrabold md:text-3xl">למה טרולי?</h2>
             <p className="mt-2 text-muted-foreground">ארבע סיבות פשוטות, בלי סיפורים.</p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          </Reveal>
+          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-3 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0 lg:pb-0">
             {benefits.map((b, i) => (
-              <Reveal key={b.title} delay={i * 70}>
+              <Reveal
+                key={b.title}
+                delay={i * 110}
+                className="w-[78%] shrink-0 snap-center sm:w-[46%] lg:w-auto"
+              >
                 <div className="group flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:border-primary/50 hover:shadow-xl">
                   <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/20 text-ocean-700 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                     <b.Icon className="h-5 w-5" />
@@ -301,6 +347,7 @@ function Index() {
           </div>
         </div>
       </section>
+
 
       {/* Destinations + packages */}
       <section id="destinations" className="border-y border-border bg-muted/50">
