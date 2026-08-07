@@ -227,11 +227,17 @@ function Index() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden">
+      <section
+        id="top"
+        ref={heroRef as React.RefObject<HTMLElement>}
+        className="relative overflow-hidden"
+      >
+        {/* Parallax sky layer – moves slower than the content above it */}
         <img
           src={heroPhoto.url}
           alt="הכפר אויה בסנטוריני, יוון"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-[120%] w-full scale-105 object-cover will-change-transform"
+          style={{ transform: `translateY(${offset * 0.35}px)` }}
           loading="eager"
         />
         <div
@@ -240,14 +246,21 @@ function Index() {
         />
         <div
           className="pointer-events-none absolute -right-24 top-10 h-64 w-64 rounded-full bg-primary/25 blur-3xl animate-float-slow"
+          style={{ transform: `translateY(${offset * 0.18}px)` }}
           aria-hidden="true"
         />
         <div
           className="pointer-events-none absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-primary/20 blur-3xl animate-float-mid"
+          style={{ transform: `translateY(${offset * -0.12}px)` }}
           aria-hidden="true"
         />
+        <CursorTrail />
 
-        <div className="relative mx-auto flex max-w-4xl flex-col items-center px-5 py-16 text-center sm:px-6 md:py-24">
+        <div
+          className="relative mx-auto flex max-w-4xl flex-col items-center px-5 py-16 text-center will-change-transform sm:px-6 md:py-24"
+          style={{ transform: `translateY(${offset * -0.12}px)` }}
+        >
+
           <img
             src={trolleyLogo.url}
             alt="לוגו טרולי טיולים"
