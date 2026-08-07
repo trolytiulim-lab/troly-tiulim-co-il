@@ -277,15 +277,18 @@ function Index() {
             ראש
           </p>
           <div className="mt-8 flex flex-col items-center gap-4">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-3.5 text-base font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow sm:text-lg"
-            >
-              <span>לתכנון החופשה בוואטסאפ</span>
-              <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
-            </a>
+            <Magnetic strength={16}>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-3.5 text-base font-extrabold text-white transition-all duration-300 hover:bg-whatsapp-dark animate-cta-glow sm:text-lg"
+              >
+                <span>לתכנון החופשה בוואטסאפ</span>
+                <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1.5" />
+              </a>
+            </Magnetic>
+
             <a
               href={`tel:${PHONE_TEL}`}
               aria-label={`התקשרו אלינו ${PHONE_DISPLAY}`}
