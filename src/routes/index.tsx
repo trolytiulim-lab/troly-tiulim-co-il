@@ -421,8 +421,16 @@ function Index() {
           <p className="mt-6 text-center text-xs text-muted-foreground">
             המחירים הם החל מ־, לאדם בחדר זוגי, ומשתנים לפי תאריכים וזמינות. מחיר מחייב נמסר בהצעה אישית.
           </p>
+          <Reveal className="mt-14 text-center">
+            <h3 className="text-xl font-extrabold md:text-2xl">מפת היעדים – לחצו על נקודה</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              כל נקודה פותחת פרטי טיול קצרים ומחיר פתיחה.
+            </p>
+          </Reveal>
+          <Reveal delay={90} className="mt-6"><DestinationMap /></Reveal>
         </div>
       </section>
+
 
       {/* Weather */}
       <section className="bg-card">
