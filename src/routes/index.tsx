@@ -37,7 +37,9 @@ const marqueeItems = [
 
 
 import { PHONE_DISPLAY, PHONE_TEL, CONTACT_EMAIL, WHATSAPP_URL } from "@/components/site/site-data";
-import { Reveal } from "@/components/site/motion";
+import { Reveal, Magnetic, useParallax, CursorTrail } from "@/components/site/motion";
+import { StatsBand } from "@/components/site/stats-band";
+import { DestinationMap } from "@/components/site/destination-map";
 import { DepartureCalendar } from "@/components/site/departure-calendar";
 import { ReviewsCarousel } from "@/components/site/reviews-carousel";
 import { WeatherStrip } from "@/components/site/weather-strip";
