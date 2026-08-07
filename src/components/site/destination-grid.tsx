@@ -157,10 +157,13 @@ export function DestinationGrid() {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {destinations.map((d, i) => (
-        <Reveal key={d.id} delay={(i % 3) * 110} className="h-full">
-          <Card dest={d} />
+        <Reveal key={d.id} delay={(i % 3) * 90} className="h-full">
+          <Tilt className="h-full">
+            <Card dest={d} />
+          </Tilt>
         </Reveal>
       ))}
     </div>
   );
 }
+
