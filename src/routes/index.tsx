@@ -145,6 +145,9 @@ const faqs = [
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { ref: heroRef, offset } = useParallax();
+
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
