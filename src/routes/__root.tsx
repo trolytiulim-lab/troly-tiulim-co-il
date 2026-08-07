@@ -79,6 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#0ea5e9" },
       { title: "טרולי טיולים" },
       { name: "description", content: "מסלולים אקטיביים ומדויקים בהתאמה אישית – בלי לבזבז שעות מול המסך ובלי כאבי ראש." },
       { name: "author", content: "TROLY-TIULIM" },
