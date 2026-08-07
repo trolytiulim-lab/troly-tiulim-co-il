@@ -132,12 +132,13 @@
 
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(3deg); }
+  50% { transform: translateY(-38px) rotate(5deg); }
 }
 @keyframes float-mid {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-12px) rotate(4deg); }
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-26px) rotate(6deg); }
 }
+
 @keyframes fly-across {
   0% { transform: translateX(-15vw) translateY(0) rotate(0deg); opacity: 0; }
   8% { opacity: 1; }
