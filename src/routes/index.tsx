@@ -547,14 +547,17 @@ function Index() {
             <p className="mt-2 text-white/80">דברו איתנו ישירות – וואטסאפ, טלפון או מייל.</p>
           </Reveal>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-base font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow"
-            >
-              שיחה בוואטסאפ
-            </a>
+            <Magnetic strength={14}>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-base font-extrabold text-white transition-all duration-300 hover:bg-whatsapp-dark animate-cta-glow"
+              >
+                שיחה בוואטסאפ
+              </a>
+            </Magnetic>
+
             <a
               href={`tel:${PHONE_TEL}`}
               className="inline-flex items-center gap-2 rounded-full bg-white/15 px-6 py-3 text-base font-bold text-white backdrop-blur transition-colors hover:bg-white/25"
