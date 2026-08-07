@@ -345,7 +345,9 @@ function Index() {
                 className="relative z-10 w-full rounded-2xl drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
               />
             </div>
+            </div>
           </div>
+
 
         </div>
       </section>
