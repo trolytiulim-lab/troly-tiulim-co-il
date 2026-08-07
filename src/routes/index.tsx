@@ -395,6 +395,16 @@ function Index() {
         </div>
       </section>
 
+      {/* Numbers */}
+      <section className="border-y border-border bg-muted/50">
+        <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6">
+          <Reveal className="mb-8 text-center">
+            <h2 className="text-2xl font-extrabold md:text-3xl">המספרים של טרולי</h2>
+          </Reveal>
+          <Reveal delay={80}><StatsBand /></Reveal>
+        </div>
+      </section>
+
 
       {/* Destinations + packages */}
       <section id="destinations" className="border-y border-border bg-muted/50">
