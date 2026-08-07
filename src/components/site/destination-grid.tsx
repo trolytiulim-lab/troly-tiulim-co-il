@@ -81,7 +81,7 @@ function Card({ dest }: { dest: Destination }) {
             src={g.src}
             alt={g.alt}
             loading="lazy"
-            className={`absolute inset-0 h-full w-full object-cover transition-all duration-[900ms] ease-out group-hover:scale-110 ${
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-[900ms] ease-out group-hover:scale-125 ${
               i === slide ? "opacity-100" : "opacity-0"
             }`}
           />
