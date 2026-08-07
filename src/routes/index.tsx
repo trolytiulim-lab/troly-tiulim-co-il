@@ -37,7 +37,9 @@ const marqueeItems = [
 
 
 import { PHONE_DISPLAY, PHONE_TEL, CONTACT_EMAIL, WHATSAPP_URL } from "@/components/site/site-data";
-import { Reveal } from "@/components/site/motion";
+import { Reveal, Magnetic, useParallax, CursorTrail } from "@/components/site/motion";
+import { StatsBand } from "@/components/site/stats-band";
+import { DestinationMap } from "@/components/site/destination-map";
 import { DepartureCalendar } from "@/components/site/departure-calendar";
 import { ReviewsCarousel } from "@/components/site/reviews-carousel";
 import { WeatherStrip } from "@/components/site/weather-strip";
@@ -145,6 +147,9 @@ const faqs = [
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { ref: heroRef, offset } = useParallax();
+
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -222,11 +227,17 @@ function Index() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden">
+      <section
+        id="top"
+        ref={heroRef as React.RefObject<HTMLElement>}
+        className="relative overflow-hidden"
+      >
+        {/* Parallax sky layer – moves slower than the content above it */}
         <img
           src={heroPhoto.url}
           alt="הכפר אויה בסנטוריני, יוון"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-[120%] w-full scale-105 object-cover will-change-transform"
+          style={{ transform: `translateY(${offset * 0.35}px)` }}
           loading="eager"
         />
         <div
@@ -235,14 +246,21 @@ function Index() {
         />
         <div
           className="pointer-events-none absolute -right-24 top-10 h-64 w-64 rounded-full bg-primary/25 blur-3xl animate-float-slow"
+          style={{ transform: `translateY(${offset * 0.18}px)` }}
           aria-hidden="true"
         />
         <div
           className="pointer-events-none absolute -left-20 bottom-0 h-56 w-56 rounded-full bg-primary/20 blur-3xl animate-float-mid"
+          style={{ transform: `translateY(${offset * -0.12}px)` }}
           aria-hidden="true"
         />
+        <CursorTrail />
 
-        <div className="relative mx-auto flex max-w-4xl flex-col items-center px-5 py-16 text-center sm:px-6 md:py-24">
+        <div
+          className="relative mx-auto flex max-w-4xl flex-col items-center px-5 py-16 text-center will-change-transform sm:px-6 md:py-24"
+          style={{ transform: `translateY(${offset * -0.12}px)` }}
+        >
+
           <img
             src={trolleyLogo.url}
             alt="לוגו טרולי טיולים"
@@ -259,15 +277,18 @@ function Index() {
             ראש
           </p>
           <div className="mt-8 flex flex-col items-center gap-4">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-3.5 text-base font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow sm:text-lg"
-            >
-              <span>לתכנון החופשה בוואטסאפ</span>
-              <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
-            </a>
+            <Magnetic strength={16}>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-3.5 text-base font-extrabold text-white transition-all duration-300 hover:bg-whatsapp-dark animate-cta-glow sm:text-lg"
+              >
+                <span>לתכנון החופשה בוואטסאפ</span>
+                <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1.5" />
+              </a>
+            </Magnetic>
+
             <a
               href={`tel:${PHONE_TEL}`}
               aria-label={`התקשרו אלינו ${PHONE_DISPLAY}`}
@@ -288,8 +309,14 @@ function Index() {
           </div>
 
 
-          <div className="mt-10 w-full max-w-2xl animate-plane-in">
+          <div
+            className="mt-10 w-full max-w-2xl will-change-transform"
+            style={{ transform: `translateY(${offset * -0.22}px)` }}
+          >
+            <div className="animate-plane-in">
             <div className="relative animate-float-slow">
+
+
               {/* Destination photos cycling behind the plane, softly faded at the edges */}
               <div
                 aria-hidden="true"
@@ -318,7 +345,9 @@ function Index() {
                 className="relative z-10 w-full rounded-2xl drop-shadow-[0_25px_50px_rgba(0,0,0,0.45)]"
               />
             </div>
+            </div>
           </div>
+
 
         </div>
       </section>
@@ -366,6 +395,16 @@ function Index() {
         </div>
       </section>
 
+      {/* Numbers */}
+      <section className="border-y border-border bg-muted/50">
+        <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6">
+          <Reveal className="mb-8 text-center">
+            <h2 className="text-2xl font-extrabold md:text-3xl">המספרים של טרולי</h2>
+          </Reveal>
+          <Reveal delay={80}><StatsBand /></Reveal>
+        </div>
+      </section>
+
 
       {/* Destinations + packages */}
       <section id="destinations" className="border-y border-border bg-muted/50">
@@ -382,8 +421,16 @@ function Index() {
           <p className="mt-6 text-center text-xs text-muted-foreground">
             המחירים הם החל מ־, לאדם בחדר זוגי, ומשתנים לפי תאריכים וזמינות. מחיר מחייב נמסר בהצעה אישית.
           </p>
+          <Reveal className="mt-14 text-center">
+            <h3 className="text-xl font-extrabold md:text-2xl">מפת היעדים – לחצו על נקודה</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              כל נקודה פותחת פרטי טיול קצרים ומחיר פתיחה.
+            </p>
+          </Reveal>
+          <Reveal delay={90} className="mt-6"><DestinationMap /></Reveal>
         </div>
       </section>
+
 
       {/* Weather */}
       <section className="bg-card">
@@ -500,14 +547,17 @@ function Index() {
             <p className="mt-2 text-white/80">דברו איתנו ישירות – וואטסאפ, טלפון או מייל.</p>
           </Reveal>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-base font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-whatsapp-dark animate-cta-glow"
-            >
-              שיחה בוואטסאפ
-            </a>
+            <Magnetic strength={14}>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3 text-base font-extrabold text-white transition-all duration-300 hover:bg-whatsapp-dark animate-cta-glow"
+              >
+                שיחה בוואטסאפ
+              </a>
+            </Magnetic>
+
             <a
               href={`tel:${PHONE_TEL}`}
               className="inline-flex items-center gap-2 rounded-full bg-white/15 px-6 py-3 text-base font-bold text-white backdrop-blur transition-colors hover:bg-white/25"

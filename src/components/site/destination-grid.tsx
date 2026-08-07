@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Check } from "lucide-react";
 import { destinations, BASE_PACKAGE, GOLD_PACKAGE, type Destination } from "./destinations-data";
 import { waLink } from "./site-data";
-import { Reveal } from "./motion";
+import { Reveal, Tilt } from "./motion";
 
 function Tier({
   name,
@@ -81,7 +81,7 @@ function Card({ dest }: { dest: Destination }) {
             src={g.src}
             alt={g.alt}
             loading="lazy"
-            className={`absolute inset-0 h-full w-full object-cover transition-all duration-[900ms] ease-out group-hover:scale-110 ${
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-[900ms] ease-out group-hover:scale-125 ${
               i === slide ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -157,10 +157,13 @@ export function DestinationGrid() {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {destinations.map((d, i) => (
-        <Reveal key={d.id} delay={(i % 3) * 110} className="h-full">
-          <Card dest={d} />
+        <Reveal key={d.id} delay={(i % 3) * 90} className="h-full">
+          <Tilt className="h-full">
+            <Card dest={d} />
+          </Tilt>
         </Reveal>
       ))}
     </div>
   );
 }
+
