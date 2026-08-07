@@ -309,8 +309,12 @@ function Index() {
           </div>
 
 
-          <div className="mt-10 w-full max-w-2xl animate-plane-in">
+          <div
+            className="mt-10 w-full max-w-2xl animate-plane-in will-change-transform"
+            style={{ transform: `translateY(${offset * -0.22}px)` }}
+          >
             <div className="relative animate-float-slow">
+
               {/* Destination photos cycling behind the plane, softly faded at the edges */}
               <div
                 aria-hidden="true"
