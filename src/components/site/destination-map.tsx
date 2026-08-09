@@ -73,7 +73,7 @@ export function DestinationMap() {
             >
               <span className="absolute inset-0 -m-3 rounded-full bg-primary/40 animate-map-ping" aria-hidden="true" />
               <span className="relative flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-background transition-transform duration-300 group-hover:scale-150" />
-              <span className={`absolute right-1/2 translate-x-1/2 ${s.labelAbove ? "bottom-5" : "top-5"} whitespace-nowrap rounded-full bg-background/90 px-2 py-0.5 text-[0.6rem] font-bold text-foreground shadow sm:text-[0.65rem]`}>
+              <span className={`absolute right-1/2 translate-x-1/2 ${s.labelAbove ? "bottom-5" : "top-5"} hidden whitespace-nowrap sm:inline-block rounded-full bg-background/90 px-2 py-0.5 text-[0.6rem] font-bold text-foreground shadow sm:text-[0.65rem]`}>
                 {s.city}
               </span>
             </button>
