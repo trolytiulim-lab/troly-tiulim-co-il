@@ -39,7 +39,8 @@ export function DestinationMap() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <div className="relative mx-auto aspect-[4/3] w-full max-w-3xl overflow-hidden rounded-[2rem] border border-border bg-gradient-to-br from-ocean-50 via-background to-ocean-100 shadow-inner sm:aspect-[16/9]">
+    <div className="mx-auto w-full max-w-3xl">
+    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-border bg-gradient-to-br from-ocean-50 via-background to-ocean-100 shadow-inner sm:aspect-[16/9]">
       <div
         aria-hidden="true"
         className="absolute inset-0 opacity-[0.35]"
@@ -115,6 +116,26 @@ export function DestinationMap() {
           </div>
         );
       })}
+    </div>
+
+      {/* Mobile-friendly destination chips (labels are hidden on the small map) */}
+      <div className="mt-4 flex flex-wrap justify-center gap-2 sm:hidden">
+        {spots.map((s) => (
+          <button
+            key={s.id}
+            type="button"
+            aria-pressed={active === s.id}
+            onClick={() => setActive(active === s.id ? null : s.id)}
+            className={`rounded-full border px-3 py-1.5 text-xs font-bold transition-colors ${
+              active === s.id
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-border bg-card text-foreground"
+            }`}
+          >
+            {s.city}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
