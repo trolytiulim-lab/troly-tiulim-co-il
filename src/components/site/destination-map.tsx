@@ -9,29 +9,30 @@ type Spot = {
   destId?: string;
   top: string;
   left: string;
+  labelAbove?: boolean;
 };
 
 /** Approximate positions on a stylised world map (percentages). */
 const spots: Spot[] = [
-  { id: "canada", city: "קנדה", top: "19%", left: "20.5%" },
-  { id: "costa-rica", city: "קוסטה ריקה", top: "44.5%", left: "26.5%" },
-  { id: "ecuador", city: "אקוודור", top: "51%", left: "28%" },
-  { id: "peru", city: "פרו", top: "57%", left: "29.5%" },
-  { id: "brazil", city: "ברזיל", top: "55.5%", left: "36.5%" },
-  { id: "scotland", city: "סקוטלנד", top: "16%", left: "48%" },
-  { id: "uk", city: "בריטניה", top: "21%", left: "45.5%" },
-  { id: "netherlands", city: "הולנד", top: "23.5%", left: "52.5%" },
-  { id: "france", city: "צרפת", top: "28%", left: "48.5%" },
-  { id: "italy", city: "איטליה", destId: "rome", top: "32%", left: "55%" },
-  { id: "morocco", city: "מרוקו", top: "38%", left: "46.5%" },
-  { id: "prague", city: "פראג", destId: "prague", top: "20.5%", left: "56.5%" },
-  { id: "budapest", city: "בודפשט", destId: "budapest", top: "26%", left: "58.5%" },
-  { id: "santorini", city: "סנטוריני", destId: "santorini", top: "30%", left: "60.5%" },
-  { id: "larnaca", city: "לרנקה", destId: "larnaca", top: "35%", left: "63%" },
-  { id: "tbilisi", city: "טביליסי", destId: "tbilisi", top: "25%", left: "66%" },
-  { id: "vietnam", city: "וייטנאם", top: "41%", left: "79%" },
-  { id: "japan", city: "יפן", top: "29%", left: "88%" },
-  { id: "new-zealand", city: "ניו זילנד", top: "72%", left: "93%" },
+  { id: "canada", city: "קנדה", top: "17%", left: "19%" },
+  { id: "costa-rica", city: "קוסטה ריקה", top: "44%", left: "24%" },
+  { id: "ecuador", city: "אקוודור", top: "54%", left: "27%", labelAbove: true },
+  { id: "peru", city: "פרו", top: "62%", left: "31%" },
+  { id: "brazil", city: "ברזיל", top: "57%", left: "38%" },
+  { id: "scotland", city: "סקוטלנד", top: "12%", left: "46%", labelAbove: true },
+  { id: "uk", city: "בריטניה", top: "20%", left: "42%" },
+  { id: "netherlands", city: "הולנד", top: "14%", left: "54%", labelAbove: true },
+  { id: "france", city: "צרפת", top: "27%", left: "45%" },
+  { id: "morocco", city: "מרוקו", top: "41%", left: "40%" },
+  { id: "prague", city: "פראג", destId: "prague", top: "20%", left: "60%", labelAbove: true },
+  { id: "budapest", city: "בודפשט", destId: "budapest", top: "30%", left: "58%" },
+  { id: "italy", city: "איטליה", destId: "rome", top: "35%", left: "50%" },
+  { id: "santorini", city: "סנטוריני", destId: "santorini", top: "41%", left: "60%" },
+  { id: "larnaca", city: "לרנקה", destId: "larnaca", top: "33%", left: "68%" },
+  { id: "tbilisi", city: "טביליסי", destId: "tbilisi", top: "22%", left: "72%", labelAbove: true },
+  { id: "vietnam", city: "וייטנאם", top: "45%", left: "80%" },
+  { id: "japan", city: "יפן", top: "27%", left: "88%" },
+  { id: "new-zealand", city: "ניו זילנד", top: "72%", left: "92%" },
 ];
 
 export function DestinationMap() {
@@ -72,7 +73,7 @@ export function DestinationMap() {
             >
               <span className="absolute inset-0 -m-3 rounded-full bg-primary/40 animate-map-ping" aria-hidden="true" />
               <span className="relative flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-background transition-transform duration-300 group-hover:scale-150" />
-              <span className="absolute right-1/2 top-5 translate-x-1/2 whitespace-nowrap rounded-full bg-background/90 px-2 py-0.5 text-[0.6rem] font-bold text-foreground shadow sm:text-[0.65rem]">
+              <span className={`absolute right-1/2 translate-x-1/2 ${s.labelAbove ? "bottom-5" : "top-5"} whitespace-nowrap rounded-full bg-background/90 px-2 py-0.5 text-[0.6rem] font-bold text-foreground shadow sm:text-[0.65rem]`}>
                 {s.city}
               </span>
             </button>
