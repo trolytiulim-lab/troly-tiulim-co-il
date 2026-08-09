@@ -81,11 +81,13 @@ export function DestinationMap() {
 
             {open && (
               <div
-                className={`absolute z-20 w-52 -translate-x-1/2 animate-scale-in sm:w-56 ${
-                  parseFloat(s.top) < 38 ? "top-6" : "-translate-y-full"
-                } ${parseFloat(s.left) < 22 ? "translate-x-4" : ""} ${
-                  parseFloat(s.left) > 80 ? "-translate-x-full" : ""
-                } rounded-2xl border border-border bg-card p-3 text-right shadow-2xl`}
+                className="absolute z-20 w-52 animate-scale-in rounded-2xl border border-border bg-card p-3 text-right shadow-2xl sm:w-56"
+                style={{
+                  top: parseFloat(s.top) < 38 ? "1.5rem" : "-0.75rem",
+                  transform: `translateX(${
+                    parseFloat(s.left) < 25 ? "-10%" : parseFloat(s.left) > 78 ? "-90%" : "-50%"
+                  }) ${parseFloat(s.top) < 38 ? "" : "translateY(-100%)"}`,
+                }}
               >
                 {dest && (
                   <>
