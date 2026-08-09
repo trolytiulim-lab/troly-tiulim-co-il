@@ -24,16 +24,22 @@ import planePhoto3 from "@/assets/photo-prague-1.jpg.asset.json";
 const planePhotos = [planePhoto1, planePhoto2, planePhoto3];
 
 const marqueeItems = [
-  "קפריסין",
-  "בודפשט",
-  "פראג",
-  "רומא",
-  "סנטוריני",
-  "טביליסי",
-  "טיסות ומלונות כלול",
-  "מסלול יום־יום מדויק",
-  "ליווי אישי בוואטסאפ",
+  "קוסטה ריקה",
+  "יפן",
+  "פרו",
+  "איטליה",
+  "וייטנאם",
+  "צרפת",
+  "אקוודור",
+  "מרוקו",
+  "קנדה",
+  "סקוטלנד",
+  "ברזיל",
+  "ניו זילנד",
+  "הולנד",
+  "בריטניה",
 ];
+
 
 
 import { PHONE_DISPLAY, PHONE_TEL, CONTACT_EMAIL, WHATSAPP_URL } from "@/components/site/site-data";
@@ -276,7 +282,7 @@ function Index() {
             מסלולים אקטיביים ומדויקים לחו"ל, כולל טיסות ומלונות – בלי לבזבז שעות מול המסך ובלי כאבי
             ראש
           </p>
-          <div className="mt-8 flex flex-col items-center gap-4">
+          <div className="relative z-20 mt-8 flex flex-col items-center gap-4">
             <Magnetic strength={16}>
               <a
                 href={WHATSAPP_URL}
@@ -310,9 +316,10 @@ function Index() {
 
 
           <div
-            className="mt-10 w-full max-w-2xl will-change-transform"
-            style={{ transform: `translateY(${offset * -0.22}px)` }}
+            className="relative z-0 mt-20 w-full max-w-2xl will-change-transform sm:mt-24"
+            style={{ transform: `translateY(${offset * -0.14}px)` }}
           >
+
             <div className="animate-plane-in">
             <div className="relative animate-float-slow">
 
