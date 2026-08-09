@@ -80,7 +80,13 @@ export function DestinationMap() {
             </button>
 
             {open && (
-              <div className="absolute z-20 w-56 -translate-x-1/2 -translate-y-full animate-scale-in rounded-2xl border border-border bg-card p-3 text-right shadow-2xl">
+              <div
+                className={`absolute z-20 w-52 -translate-x-1/2 animate-scale-in sm:w-56 ${
+                  parseFloat(s.top) < 38 ? "top-6" : "-translate-y-full"
+                } ${parseFloat(s.left) < 22 ? "translate-x-4" : ""} ${
+                  parseFloat(s.left) > 80 ? "-translate-x-full" : ""
+                } rounded-2xl border border-border bg-card p-3 text-right shadow-2xl`}
+              >
                 {dest && (
                   <>
                     <img
